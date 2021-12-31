@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {persistStore, persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -42,7 +42,7 @@ const reducer = persistReducer(persistConfig, reducers);
 const preloadedState = {};
 
 // enhancer config
-const enhancer = process.env.NODE_ENV !== "production" ? composeWithDevTools(applyMiddleware(thunk)) : compose(applyMiddleware(thunk));
+const enhancer = composeWithDevTools(applyMiddleware(thunk));
 
 // stores & persistor
 export const store = createStore(reducer, preloadedState, enhancer);

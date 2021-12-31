@@ -1,6 +1,6 @@
 const cache_names = {
-    static: 'bookshop-static-v2.3',
-    dynamic: 'bookshop-dynamic-v2.3',
+    static: 'bookshop-static-v2.5',
+    dynamic: 'bookshop-dynamic-v2.5',
 };
 
 const cache_urls = [
@@ -58,7 +58,7 @@ self.addEventListener('fetch', (e) => {
     // stale while revalidate
     if (
         e.request.method === 'GET' &&
-        !e.request.url.startsWith('https://bookshop-alirezanaghdi.fandogh.cloud/api') &&
+        !e.request.url.startsWith('https://bookshop-backend-alirezanaghdi.fandogh.cloud/api') &&
         !e.request.url.startsWith('chrome-extension')
     ) {
         e.respondWith(
@@ -78,7 +78,7 @@ self.addEventListener('fetch', (e) => {
     // network first
     if (
         e.request.method === 'GET' &&
-        e.request.url.startsWith('https://bookshop-alirezanaghdi.fandogh.cloud/api')
+        e.request.url.startsWith('https://bookshop-backend-alirezanaghdi.fandogh.cloud/api')
     ) {
         e.respondWith(
             fetch(e.request)

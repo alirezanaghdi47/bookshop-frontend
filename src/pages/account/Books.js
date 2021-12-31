@@ -68,14 +68,14 @@ const Books = () => {
 
                         {/* books table */}
                         {
-                            !booksIsLoading && booksCount > 0 && books.length > 0 && (
+                            !booksIsLoading && booksCount > 0 && books?.length > 0 && (
                                 <BooksTable books={books}/>
                             )
                         }
 
                         {/* pagination */}
                         {
-                            !booksIsLoading && booksCount > 5 && books.length !== 0 && (
+                            !booksIsLoading && booksCount > 5 && books?.length !== 0 && (
                                 <Pagination
                                     pageCount={Math.ceil(booksCount / 5)}
                                     page={page}
@@ -86,7 +86,7 @@ const Books = () => {
 
                         {/* no data */}
                         {
-                            !booksIsLoading && books.length === 0 && (
+                            !booksIsLoading && books?.length === 0 && (
                                 <EmptyPlaceholder
                                     src={process.env.PUBLIC_URL + '/images/no-data.svg'}
                                     alt=" کتابی یافت نشد"

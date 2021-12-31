@@ -59,14 +59,14 @@ const Orders = () => {
 
                         {/* orders table */}
                         {
-                            !cartsIsLoading && cartsCount > 0 && carts.length > 0 && (
+                            !cartsIsLoading && cartsCount > 0 && carts?.length > 0 && (
                                 <OrdersTable carts={carts}/>
                             )
                         }
 
                         {/* pagination */}
                         {
-                            !cartsIsLoading && cartsCount > 5 && carts.length !== 0 && (
+                            !cartsIsLoading && cartsCount > 5 && carts?.length !== 0 && (
                                 <Pagination
                                     pageCount={Math.ceil(cartsCount / 5)}
                                     page={page}
@@ -77,7 +77,7 @@ const Orders = () => {
 
                         {/* no data */}
                         {
-                            !cartsIsLoading && carts.length === 0 &&  (
+                            !cartsIsLoading && carts?.length === 0 &&  (
                                 <EmptyPlaceholder
                                     src={process.env.PUBLIC_URL + '/images/no-data.svg'}
                                     alt="سفارشی یافت نشد"

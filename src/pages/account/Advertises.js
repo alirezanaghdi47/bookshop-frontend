@@ -66,14 +66,14 @@ const Advertises = () => {
 
                         {/* advertises table */}
                         {
-                            !advertisesIsLoading && advertisesCount > 0 && advertises.length > 0 && (
+                            !advertisesIsLoading && advertisesCount > 0 && advertises?.length > 0 && (
                                 <AdvertiseTable advertises={advertises}/>
                             )
                         }
 
                         {/* pagination */}
                         {
-                            !advertisesIsLoading && advertisesCount > 5 && advertises.length !== 0 && (
+                            !advertisesIsLoading && advertisesCount > 5 && advertises?.length !== 0 && (
                                 <Pagination
                                     pageCount={Math.ceil(advertisesCount / 5)}
                                     page={page}
@@ -84,7 +84,7 @@ const Advertises = () => {
 
                         {/* no data */}
                         {
-                            !advertisesIsLoading && advertises.length === 0 &&  (
+                            !advertisesIsLoading && advertises?.length === 0 &&  (
                                 <EmptyPlaceholder
                                     src={process.env.PUBLIC_URL + '/images/no-data.svg'}
                                     alt="تبلیغی یافت نشد"

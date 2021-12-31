@@ -59,14 +59,14 @@ const Users = () => {
 
                         {/* users table */}
                         {
-                            !usersIsLoading && usersCount > 0 && users.length > 0 && (
+                            !usersIsLoading && usersCount > 0 && users?.length > 0 && (
                                 <UsersTable users={users}/>
                             )
                         }
 
                         {/* pagination */}
                         {
-                            !usersIsLoading && usersCount > 5 && users.length !== 0 && (
+                            !usersIsLoading && usersCount > 5 && users?.length !== 0 && (
                                 <Pagination
                                     pageCount={Math.ceil(usersCount / 5)}
                                     page={page}
@@ -77,7 +77,7 @@ const Users = () => {
 
                         {/* no data */}
                         {
-                            !usersIsLoading && users.length === 0 &&  (
+                            !usersIsLoading && users?.length === 0 &&  (
                                 <EmptyPlaceholder
                                     src={process.env.PUBLIC_URL + '/images/no-data.svg'}
                                     alt="کاربری یافت نشد"

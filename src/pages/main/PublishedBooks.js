@@ -61,14 +61,14 @@ const PublishedBooks = () => {
 
                         {/* book list */}
                         {
-                            !publishedBooksIsLoading && publishedBooksCount > 0 && publishedBooks.length > 0 && (
+                            !publishedBooksIsLoading && publishedBooksCount > 0 && publishedBooks?.length > 0 && (
                                 <BookList books={publishedBooks}/>
                             )
                         }
 
                         {/* pagination */}
                         {
-                            !publishedBooksIsLoading && publishedBooksCount > 12 && publishedBooks.length !== 0 && (
+                            !publishedBooksIsLoading && publishedBooksCount > 12 && publishedBooks?.length !== 0 && (
                                 <Pagination
                                     pageCount={Math.ceil(publishedBooksCount / 5)}
                                     page={page}
@@ -79,7 +79,7 @@ const PublishedBooks = () => {
 
                         {/* no data */}
                         {
-                            !publishedBooksIsLoading && publishedBooks.length === 0 && (
+                            !publishedBooksIsLoading && publishedBooks?.length === 0 && (
                                 <EmptyPlaceholder
                                     src={process.env.PUBLIC_URL + '/images/no-data.svg'}
                                     alt="کتابی یافت نشد"

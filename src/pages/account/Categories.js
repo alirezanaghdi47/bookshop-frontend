@@ -69,14 +69,14 @@ const Categories = () => {
 
                         {/* categories table */}
                         {
-                            !categoriesIsLoading && categoriesCount > 0 && categories.length > 0 && (
+                            !categoriesIsLoading && categoriesCount > 0 && categories?.length > 0 && (
                                 <CategoriesTable categories={categories}/>
                             )
                         }
 
                         {/* pagination */}
                         {
-                            !categoriesIsLoading && categoriesCount > 5 && categories.length !== 0 &&  (
+                            !categoriesIsLoading && categoriesCount > 5 && categories?.length !== 0 &&  (
                                 <Pagination
                                     pageCount={Math.ceil(categoriesCount / 5)}
                                     page={page}
@@ -87,7 +87,7 @@ const Categories = () => {
 
                         {/* no data */}
                         {
-                            !categoriesIsLoading && categories.length === 0 && (
+                            !categoriesIsLoading && categories?.length === 0 && (
                                 <EmptyPlaceholder
                                     src={process.env.PUBLIC_URL + '/images/no-data.svg'}
                                     alt="دسته بندی یافت نشد"
