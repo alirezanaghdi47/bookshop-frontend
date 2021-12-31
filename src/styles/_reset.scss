@@ -1,0 +1,55 @@
+//=================//
+//===== reset =====//
+//=================//
+
+body {
+  height: 100% !important;
+  min-height: 100vh !important;
+}
+
+body, h1, h2, h3, h4, p, span, li, div, ul, input, button, img, i, table, thead, tbody, tr, td, th {
+  user-select: none !important;
+  margin-bottom: 0 !important;
+}
+
+ul {
+  list-style-type: none !important;
+  padding: 0 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 2px solid #e0e0e0 !important;
+  -webkit-text-fill-color: #212121 !important;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+}
+
+// handling same input in all browsers
+input,
+input:before,
+input:after {
+  -khtml-user-select: initial !important;
+  -moz-user-select: initial !important;
+  -ms-user-select: initial !important;
+  user-select: initial !important;
+  -webkit-user-select: initial !important;
+}
+
+// remove up down counter number input
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+// remove up down counter number input
+input[type='number'] {
+  -moz-appearance: textfield !important;
+}

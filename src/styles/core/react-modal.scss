@@ -1,0 +1,27 @@
+//=======================//
+//===== react modal =====//
+//=======================//
+
+.ReactModal__Overlay {
+  position: fixed !important;
+  z-index: 500 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background: transparentize(#212121, 0.2) !important;
+}
+
+.ReactModal__Content {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  inset: unset !important;
+  min-width: 300px !important;
+  min-height: 150px !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+}

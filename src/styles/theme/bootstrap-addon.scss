@@ -1,0 +1,139 @@
+.btn-icon {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+
+  &.btn-xs {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
+
+  &.btn-sm {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+
+  &.btn-lg {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+
+  &.btn-xl {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+
+  &.btn-rounded {
+    border-radius: 0.5rem !important;
+  }
+}
+
+.badge {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.bg-repeat {
+  background-repeat: repeat !important;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat !important;
+}
+
+.bg-cover {
+  background-size: cover !important;
+}
+
+.bg-center {
+  background-position: center !important;
+}
+
+.bg-filter {
+  background-blend-mode: luminosity;
+}
+
+.object-cover {
+  object-fit: cover !important;
+}
+
+.object-fill {
+  object-fit: fill !important;
+}
+
+.object-contain {
+  object-fit: contain !important;
+}
+
+.object-center {
+  object-position: center !important;
+}
+
+.w-max-content {
+  width: max-content !important;
+}
+
+.w-available {
+  width: available !important;
+}
+
+.h-max-content {
+  height: max-content !important;
+}
+
+.h-available {
+  height: available !important;
+}
+
+.z-index-500 {
+  z-index: 500 !important;
+}
+
+.z-index-400 {
+  z-index: 400 !important;
+}
+
+.line-height {
+  line-height: 30px !important;
+}
+
+.border-dashed {
+  border-style: dashed !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-rtl {
+  direction: rtl !important;
+}
+
+.text-ltr {
+  direction: ltr !important;
+}
+
+.text-inline {
+  display: flex !important;
+  align-items: center!important;
+}
+
+.remove-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  transition: all ease 0.3s !important;
+}

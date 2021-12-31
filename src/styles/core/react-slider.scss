@@ -1,0 +1,96 @@
+//==================//
+//===== slider =====//
+//==================//
+
+.slick-list {
+  margin: 0 -0.5rem !important;
+}
+
+.slick-slide > div {
+  height: 100% !important;
+  padding: 0 0.5rem !important;
+}
+
+.slick-dots {
+  bottom: 2rem !important;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: max-content !important;
+  background: #ffffff !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+
+  li {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+
+    button {
+      width: 100% !important;
+      height: 100% !important;
+      background: #4d1dfe !important;
+      border-radius: 50% !important;
+      opacity: 0.5 !important;
+
+      &::before {
+        content: "" !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+
+    &.slick-active {
+      button {
+        opacity: 1 !important;
+      }
+    }
+  }
+}
+
+.slick-arrow {
+  z-index: 100 !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  background: #ffffff !important;
+  border-radius: 0.5rem !important;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 8px 24px, rgba(17, 17, 26, 0.1) 0 16px 56px !important;
+
+  &::before {
+    font-weight: bold !important;
+    font-family: "Font Awesome 5 Pro" !important;
+    color: #4d1dfe !important;
+  }
+}
+
+.slick-prev {
+  right: 1rem !important;
+
+  &::before {
+    content: "\f054" !important;
+  }
+}
+
+.slick-next {
+  left: 1rem !important;
+
+  &::before {
+    content: "\f053" !important;
+  }
+}
+
+.swiper__item {
+  direction: rtl !important;
+  min-height: 360px !important;
+}
+
+.carousel {
+  width: 100% !important;
+  height: 100% !important;
+
+  &__item {
+    border-radius: 0.5rem !important;
+    overflow: hidden !important;
+  }
+}
