@@ -50,7 +50,7 @@ const AddAdvertise = () => {
     });
 
     useLayoutEffect(() => {
-        dispatch(readBooks(`page=${0}&&limit=${100}`));
+        dispatch(readBooks());
         // eslint-disable-next-line
     }, []);
 

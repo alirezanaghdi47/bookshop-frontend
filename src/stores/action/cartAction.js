@@ -1,6 +1,7 @@
 import * as t from '../actionType';
 import axios from 'axios';
 import {hideLoading, showLoading} from './otherAction';
+import {delay} from '../../utils/functions';
 import {toast} from 'react-toastify';
 
 const {REACT_APP_ENDPOINT} = process.env;
@@ -11,6 +12,7 @@ export const readCarts = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CARTS});
+    await delay(500);
 
     await axios
         .get(`${REACT_APP_ENDPOINT}/cart/carts?${query}`, {
@@ -30,6 +32,7 @@ export const readCart = (id, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CART});
+    await delay(500);
 
     await axios
         .get(`${REACT_APP_ENDPOINT}/cart/carts/${id}`, {
@@ -50,6 +53,7 @@ export const readOpenCart = () => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_OPEN_CART});
+    await delay(500);
 
     await axios
         .get(`${REACT_APP_ENDPOINT}/cart/open-cart`, {
@@ -69,6 +73,7 @@ export const updateCart = (cart, navigate) => async (dispatch, getState) => {
     const {token, address, postalCode} = getState().user.profile;
 
     await dispatch(showLoading());
+    await delay(500);
 
     if (!address && !postalCode) {
         await dispatch(hideLoading());

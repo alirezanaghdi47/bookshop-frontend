@@ -1,6 +1,7 @@
 import * as t from '../actionType';
 import axios from 'axios';
 import {showLoading, hideLoading} from './otherAction';
+import {delay} from '../../utils/functions';
 import {toast} from 'react-toastify';
 
 const {REACT_APP_ENDPOINT} = process.env;
@@ -11,6 +12,7 @@ export const readCategories = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CATEGORIES});
+    await delay(500);
 
     await axios
         .get(`${REACT_APP_ENDPOINT}/category/categories?${query}`, {
@@ -30,6 +32,7 @@ export const readCategory = (id) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CATEGORY});
+    await delay(500);
 
     await axios
         .get(`${REACT_APP_ENDPOINT}/category/categories/${id}`, {
@@ -49,6 +52,7 @@ export const createCategory = (payload, navigate) => async (dispatch, getState) 
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
         .post(`${REACT_APP_ENDPOINT}/category/add-category`, payload, {
@@ -71,6 +75,7 @@ export const updateCategory = (id, payload, navigate) => async (dispatch, getSta
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
         .put(`${REACT_APP_ENDPOINT}/category/edit-category/${id}`, payload, {
@@ -93,6 +98,7 @@ export const deleteCategory = (id, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
         .patch(

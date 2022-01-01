@@ -27,7 +27,7 @@ const Users = () => {
     } = useSelector((state) => state.user.users);
 
     useLayoutEffect(() => {
-        dispatch(readUsers(`page=${page}&&limit=${5}`));
+        dispatch(readUsers(`page=${page}&&limit=5`));
         // eslint-disable-next-line
     }, [page]);
 

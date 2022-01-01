@@ -55,7 +55,7 @@ const EditAdvertise = () => {
 
     useLayoutEffect(() => {
         dispatch(readAdvertise(params.id));
-        dispatch(readBooks(`page=${0}&&limit=${100}`));
+        dispatch(readBooks());
         // eslint-disable-next-line
     }, [params]);
 

@@ -55,7 +55,7 @@ const Login = () => {
                                         <p className="fs-6 fw-bold text-white">رمز عبور ( 12345678 )</p>
                                     </div>
                                 }
-                                placement="right"
+                                placement="top"
                             >
                                 <button className="btn btn-icon btn-sm btn-rounded btn-link link-primary">
                                     <i className="far fa-info-circle fs-2"/>

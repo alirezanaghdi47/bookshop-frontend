@@ -88,7 +88,7 @@ const EditBook = () => {
 
     useLayoutEffect(() => {
         dispatch(readBook(params.id));
-        dispatch(readCategories(`page=${0}&&limit=${100}`));
+        dispatch(readCategories());
         // eslint-disable-next-line
     }, [params]);
 
