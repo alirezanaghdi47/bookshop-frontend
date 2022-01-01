@@ -7,7 +7,6 @@ import {useSelector} from "react-redux";
 //=====================//
 
 import Logo from './header/Logo';
-import CopyRight from "./footer/CopyRight";
 
 
 const AuthLayout = ({children}) => {
@@ -22,7 +21,7 @@ const AuthLayout = ({children}) => {
     } , [location.pathname]);
 
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100 min-vh-100">
+        <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100 min-vh-100 p-3">
 
             {/* header */}
             <header className="d-flex justify-content-center align-items-center w-100 p-3">
@@ -30,14 +29,9 @@ const AuthLayout = ({children}) => {
             </header>
 
             {/* main */}
-            <main className="card w-75 p-3" style={{maxWidth: 450}}>
+            <main className="card w-100 p-3" style={{maxWidth: 450}}>
                 {children}
             </main>
-
-            {/* footer */}
-            <footer className="d-flex justify-content-center align-items-center w-100 p-3">
-                <CopyRight/>
-            </footer>
 
         </div>
     );

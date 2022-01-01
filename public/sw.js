@@ -4,15 +4,24 @@ const cache_names = {
 };
 
 const cache_urls = [
-    './index.html',
+    './',
     './fonts/font-awesome.css',
     './fonts/vazir.css',
     './fonts/font-awesome/fa-light-300.woff2',
     './fonts/font-awesome/fa-regular-400.woff2',
     './fonts/font-awesome/fa-solid-900.woff2',
     './fonts/vazir/Vazir-Regular-FD.woff2',
+    './fonts/vazir/Vazir-Regular-FD.woff',
+    './fonts/vazir/Vazir-Regular-FD.ttf',
+    './fonts/vazir/Vazir-Regular-FD.eot',
     './fonts/vazir/Vazir-Medium-FD.woff2',
+    './fonts/vazir/Vazir-Medium-FD.woff',
+    './fonts/vazir/Vazir-Medium-FD.ttf',
+    './fonts/vazir/Vazir-Medium-FD.eot',
     './fonts/vazir/Vazir-Bold-FD.woff2',
+    './fonts/vazir/Vazir-Bold-FD.woff',
+    './fonts/vazir/Vazir-Bold-FD.ttf',
+    './fonts/vazir/Vazir-Bold-FD.eot',
     './images/apple-touch-icon.png',
     './images/favicon.ico',
     './images/favicon16.png',
@@ -32,10 +41,11 @@ const cache_urls = [
     './sw.js',
 ];
 
+
 // install
 self.addEventListener('install', (e) => {
     e.waitUntil(
-        caches.open(cache_names["static"]).then((cache) => {
+        caches.open(cache_names["static"]).then(cache => {
             cache.addAll(cache_urls).then(() => {
                 self.skipWaiting();
             });
@@ -47,56 +57,61 @@ self.addEventListener('install', (e) => {
 // fetch
 self.addEventListener('fetch', (e) => {
 
-    // check offline device
+    // offline mode
     if (!navigator.onLine) {
-        e.respondWith(
-            caches.match(e.request)
-        );
-        return;
-    }
 
-    // stale while revalidate
-    if (
-        e.request.method === 'GET' &&
-        !e.request.url.startsWith('https://bookshop-backend-alirezanaghdi.fandogh.cloud/api') &&
-        !e.request.url.startsWith('chrome-extension')
-    ) {
-        e.respondWith(
-            caches.match(e.request).then((response) => {
-                return (
-                    response || fetch(e.request).then((networkResponse) => {
-                        return caches.open(cache_names['dynamic']).then((cache) => {
+        e.respondWith(caches.match(e.request));
+
+    } else {
+
+        // stale while revalidate
+        if (
+            e.request.method === 'GET' &&
+            !e.request.url.startsWith('https://alireza-bookshop.herokuapp.com/api') &&
+            !e.request.url.startsWith('chrome-extension')
+        ) {
+            e.respondWith(
+                caches.match(e.request).then(cache => {
+                    return (
+                        cache || fetch(e.request).then(networkResponse => {
+                            return caches.open(cache_names['dynamic']).then(cache => {
+                                cache.put(e.request, networkResponse.clone());
+                                return networkResponse;
+                            });
+                        })
+                    );
+                })
+            );
+        }
+
+        // network first
+        if (
+            e.request.method === 'GET' &&
+            e.request.url.startsWith('https://alireza-bookshop.herokuapp.com/api')
+        ) {
+            e.respondWith(
+                fetch(e.request)
+                    .then(networkResponse => {
+                        return caches.open(cache_names['dynamic']).then(cache => {
                             cache.put(e.request, networkResponse.clone());
                             return networkResponse;
                         });
                     })
-                );
-            })
-        );
-    }
+                    // .catch(() => {
+                    //     return caches.match(e.request);
+                    // })
+            );
+        }
 
-    // network first
-    if (
-        e.request.method === 'GET' &&
-        e.request.url.startsWith('https://bookshop-backend-alirezanaghdi.fandogh.cloud/api')
-    ) {
-        e.respondWith(
-            fetch(e.request)
-                .then((networkResponse) => {
-                    return caches.open(cache_names['dynamic']).then((cache) => {
-                        cache.put(e.request, networkResponse.clone());
-                        return networkResponse;
-                    });
-                })
-                .catch(() => {
-                    return caches.match(e.request);
-                })
-        );
-    }
+        // network only
+        if (
+            e.request.method !== "GET" ||
+            e.request.url.startsWith('chrome-extension')
+        ) {
+            e.respondWith(fetch(e.request).then(networkResponse => networkResponse));
+        }
 
-    // network only
-    if (e.request.url.startsWith('chrome-extension')) {
-        e.respondWith(fetch(e.request));
+
     }
 
 });

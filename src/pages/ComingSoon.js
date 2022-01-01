@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import {Helmet} from 'react-helmet';
 
 //=====================//
@@ -30,6 +31,13 @@ const ComingSoon = () => {
                         width={300}
                         height={300}
                     />
+
+                    <Link
+                        to="/"
+                        className="btn btn-sm btn-primary w-max-content mt-4 mx-auto"
+                    >
+                        بازگشت به صفحه اصلی
+                    </Link>
 
                 </OtherLayout>
 

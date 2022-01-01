@@ -6,6 +6,13 @@ import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {store, persistor} from './stores/store';
+import {Detector} from "react-detect-offline";
+
+//=====================//
+//===== component =====//
+//=====================//
+
+import ConnectionLost from "./pages/ConnectionLost";
 
 //=================//
 //===== style =====//
@@ -26,7 +33,7 @@ ReactDOM.render(
                 <BrowserRouter>
 
                     {/* app */}
-                    <App/>
+                    <Detector render={({online}) => online ? <App/> : <ConnectionLost/>}/>
 
                 </BrowserRouter>
 

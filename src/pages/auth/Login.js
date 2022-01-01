@@ -13,6 +13,7 @@ import PageAnimation from "../../core/animation/PageAnimation";
 import AuthLayout from '../../components/layout/AuthLayout';
 import TextInput from '../../core/form/TextInput';
 import PasswordInput from '../../core/form/PasswordInput';
+import Tooltip from "../../core/Tooltip";
 
 
 const Login = () => {
@@ -46,13 +47,27 @@ const Login = () => {
 
                         <div className="d-flex justify-content-between align-items-center w-100">
                             <h2 className="fs-1 fw-bold text-primary">ورود</h2>
+                            <Tooltip
+                                content={
+                                    <div className="d-flex flex-column justify-content-center align-items-center">
+                                        <h3 className="fs-5 fw-bold text-white mb-2">اطلاعات مدیر سایت</h3>
+                                        <p className="fs-6 fw-bold text-white mb-1">ایمیل ( alirezanaghdi47@gmail.com )</p>
+                                        <p className="fs-6 fw-bold text-white">رمز عبور ( 12345678 )</p>
+                                    </div>
+                                }
+                                placement="right"
+                            >
+                                <button className="btn btn-icon btn-sm btn-rounded btn-link link-primary">
+                                    <i className="far fa-info-circle fs-2"/>
+                                </button>
+                            </Tooltip>
                         </div>
 
                         <div className="d-flex flex-column justify-content-center align-items-start w-100">
                             <TextInput
                                 label="ایمیل"
                                 name="email"
-                                placeholder="admin : alirezanaghdi47@gmail.com"
+                                placeholder=""
                                 value={formik.values?.email}
                                 onChange={formik.handleChange}
                                 error={formik.errors?.email}
@@ -63,7 +78,7 @@ const Login = () => {
                             <PasswordInput
                                 label="رمز عبور"
                                 name="password"
-                                placeholder="admin : 12345678"
+                                placeholder=""
                                 value={formik.values?.password}
                                 onChange={formik.handleChange}
                                 error={formik.errors?.password}
