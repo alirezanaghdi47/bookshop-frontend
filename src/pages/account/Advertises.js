@@ -28,7 +28,7 @@ const Advertises = () => {
     } = useSelector((state) => state.advertise.advertises);
 
     useLayoutEffect(() => {
-        dispatch(readAdvertises(`page=${0}&&limit=${5}`));
+        dispatch(readAdvertises(`page=${page}&&limit=${5}`));
         // eslint-disable-next-line
     }, [page]);
 

@@ -84,7 +84,7 @@ const AddBook = () => {
     });
 
     useLayoutEffect(() => {
-        dispatch(readCategories());
+        dispatch(readCategories(`page=${0}&&limit=${100}`));
         // eslint-disable-next-line
     }, []);
 

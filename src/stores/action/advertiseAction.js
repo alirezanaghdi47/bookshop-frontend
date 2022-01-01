@@ -1,7 +1,6 @@
 import * as t from './../actionType';
 import axios from 'axios';
 import {showLoading, hideLoading} from './otherAction';
-import {delay} from '../../utils/functions';
 import {toast} from 'react-toastify';
 
 const {REACT_APP_ENDPOINT} = process.env;
@@ -12,7 +11,6 @@ export const readAdvertises = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_ADVERTISES});
-    await delay(500);
 
     await axios
         .get(`${REACT_APP_ENDPOINT}/advertise/advertises?${query}`, {
@@ -32,7 +30,6 @@ export const readPublishedAdvertises = (query) => async (dispatch, getState) => 
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_PUBLISHED_ADVERTISES});
-    await delay(500);
 
     await axios
         .get(`${REACT_APP_ENDPOINT}/advertise/published-advertises?${query}`, {
@@ -55,7 +52,6 @@ export const readAdvertise = (id) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_ADVERTISE});
-    await delay(500);
 
     await axios
         .get(`${REACT_APP_ENDPOINT}/advertise/advertises/${id}`, {
@@ -75,7 +71,6 @@ export const createAdvertise = (payload, navigate) => async (dispatch, getState)
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .post(`${REACT_APP_ENDPOINT}/advertise/add-advertise`, payload, {
@@ -98,7 +93,6 @@ export const updateAdvertise = (id, payload, navigate) => async (dispatch, getSt
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .put(`${REACT_APP_ENDPOINT}/advertise/edit-advertise/${id}`, payload, {
@@ -121,7 +115,6 @@ export const deleteAdvertise = (id, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .delete(`${REACT_APP_ENDPOINT}/advertise/delete-advertise/${id}`, {

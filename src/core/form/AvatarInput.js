@@ -8,12 +8,6 @@ import {useDropzone} from 'react-dropzone';
 
 import '../../styles/core/react-dropzone.scss';
 
-//=====================//
-//===== component =====//
-//=====================//
-
-import Image from "../Image";
-
 
 const AvatarInput = ({
                          label,
@@ -33,13 +27,13 @@ const AvatarInput = ({
         accept: acceptFiles,
         maxSize: maxSize,
         maxFiles: 1,
-        onDrop: async (files) => {
-            await setFile(
+        onDrop: (files) => {
+            setFieldValue(name, files[0]);
+            setFile(
                 Object.assign(files[0], {
                     preview: URL.createObjectURL(files[0])
                 })
             );
-            await setFieldValue(name, files[0]);
         }
     });
 
@@ -70,18 +64,17 @@ const AvatarInput = ({
             <div
                 {...getRootProps()}
                 className="position-relative d-flex justify-content-center align-items-center form-control form-control-lg border-dashed p-2 cursor-pointer"
-                style={{width: '10rem', height: '10rem'}}>
+                style={{width: '10rem', height: '10rem'}}
+            >
                 {
-                    ((file?.preview && value) || preview) && (
+                    (
+                        (file?.preview && value) || preview) && (
                         <aside className="w-100 h-100 bg-light rounded">
-                            <Image
+                            <img
                                 src={file.preview || preview}
                                 alt="عکس پروفایل"
-                                width="100%"
-                                height="100%"
+                                className="img-fluid w-100 h-100 bg-light rounded object-center object-cover"
                                 style={{maxHeight: '8.75rem'}}
-                                className="img-fluid bg-light rounded object-center object-cover"
-                                placeholderSrc={process.env.PUBLIC_URL + '/images/placeholder.png'}
                             />
                         </aside>
                     )

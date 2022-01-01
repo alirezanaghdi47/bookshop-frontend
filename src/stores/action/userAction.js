@@ -13,7 +13,6 @@ export const readUsers = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_USERS});
-    await delay(500);
 
     await axios
         .get(`${REACT_APP_ENDPOINT}/user/users?${query}`, {
@@ -33,7 +32,6 @@ export const readChart = () => async (dispatch, getState) => {
     const {token, acl} = getState().user.profile;
 
     await dispatch({type: t.GET_CHART});
-    await delay(500);
 
     await axios
         .get(
@@ -54,7 +52,6 @@ export const readChart = () => async (dispatch, getState) => {
 export const register = (payload, navigate) => async (dispatch) => {
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .post(`${REACT_APP_ENDPOINT}/user/register`, payload)
@@ -74,7 +71,6 @@ export const register = (payload, navigate) => async (dispatch) => {
 export const login = (payload, navigate) => async (dispatch) => {
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .post(`${REACT_APP_ENDPOINT}/user/login`, payload)
@@ -98,7 +94,6 @@ export const login = (payload, navigate) => async (dispatch) => {
 export const forgetPassword = (payload, navigate) => async (dispatch) => {
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .post(`${REACT_APP_ENDPOINT}/user/forget-password`, payload)
@@ -121,7 +116,6 @@ export const resendKey = (navigate) => async (dispatch, getState) => {
     const email = getState().user.profile.email;
 
     await dispatch(showLoading());
-    await delay(500);
 
     if (!email) {
         await dispatch(hideLoading());
@@ -150,7 +144,6 @@ export const verifyKey = (payload, navigate) => async (dispatch, getState) => {
     const email = getState().user.profile.email;
 
     await dispatch(showLoading());
-    await delay(500);
 
     if (!email) {
         await dispatch(hideLoading());
@@ -183,7 +176,6 @@ export const confirmPassword = (payload, navigate) => async (dispatch, getState)
     const {email, forgetKey} = getState().user.profile;
 
     await dispatch(showLoading());
-    await delay(500);
 
     if (!email) {
         await dispatch(hideLoading());
@@ -237,7 +229,6 @@ export const updateUser = (payload) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .put(`${REACT_APP_ENDPOINT}/user/edit-user`, payload, {
@@ -263,7 +254,6 @@ export const deleteAvatarUser = (navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .delete(`${REACT_APP_ENDPOINT}/user/delete-avatar-user`, {

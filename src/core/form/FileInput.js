@@ -9,12 +9,6 @@ import {formatBytes} from '../../utils/functions';
 
 import '../../styles/core/react-dropzone.scss';
 
-//=====================//
-//===== component =====//
-//=====================//
-
-import Image from "../Image";
-
 
 const FileInput = ({
                        label,
@@ -32,13 +26,13 @@ const FileInput = ({
         accept: acceptFiles,
         maxSize: maxSize,
         maxFiles: 1,
-        onDrop: async (files) => {
-            await setFile(
+        onDrop: (files) => {
+            setFieldValue(name, files[0]);
+            setFile(
                 Object.assign(files[0], {
                     preview: URL.createObjectURL(files[0])
                 })
             );
-            await setFieldValue(name, files[0]);
         }
     });
 
@@ -67,13 +61,12 @@ const FileInput = ({
             >
                 {
                     file?.preview && value && (
-                        <aside className="ms-3">
-                            <Image
+                        <aside className="ms-3 me-1">
+                            <img
                                 src={file.preview}
                                 alt={file.name}
-                                className="img-fluid bg-light rounded object-center object-cover"
+                                className="img-fluid w-100 h-100 bg-light rounded object-center object-cover"
                                 style={{maxHeight: '8rem'}}
-                                placeholderSrc={process.env.PUBLIC_URL + '/images/placeholder.png'}
                             />
                         </aside>
                     )
@@ -91,7 +84,7 @@ const FileInput = ({
                 {
                     file?.preview && value ? (
                         <button
-                            className="position-absolute top-0 start-0 btn btn-icon btn-rounded btn-danger m-3"
+                            className="position-absolute top-0 start-0 btn btn-icon btn-rounded btn-danger m-2"
                             onClick={handleClear}>
                             <i className="far fa-trash-alt fs-5"/>
                         </button>
