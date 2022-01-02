@@ -28,7 +28,7 @@ const Books = () => {
     } = useSelector((state) => state.book.books);
 
     useLayoutEffect(() => {
-        dispatch(readBooks(`?page=${page}&&limit=${5}`));
+        dispatch(readBooks(`page=${page}&&limit=${5}`));
         // eslint-disable-next-line
     }, [page]);
 

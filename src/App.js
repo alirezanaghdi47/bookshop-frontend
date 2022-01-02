@@ -19,7 +19,6 @@ import Notification from './core/Notification';
 const Home = lazy(() => import('./pages/main/Home'));
 const Cart = lazy(() => import('./pages/main/Cart'));
 const Book = lazy(() => import('./pages/main/Book'));
-const PublishedBooks = lazy(() => import('./pages/main/PublishedBooks'));
 const Login = lazy(() => import('./pages/auth/Login'));
 const Register = lazy(() => import('./pages/auth/Register'));
 const VerifyPassword = lazy(() => import('./pages/auth/VerifyPassword'));
@@ -36,9 +35,6 @@ const Users = lazy(() => import('./pages/account/Users'));
 const Orders = lazy(() => import('./pages/account/Orders'));
 const Order = lazy(() => import('./pages/account/Order'));
 const Profile = lazy(() => import('./pages/account/Profile'));
-const Advertises = lazy(() => import('./pages/account/Advertises'));
-const AddAdvertise = lazy(() => import('./pages/account/AddAdvertise'));
-const EditAdvertise = lazy(() => import('./pages/account/EditAdvertise'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const ComingSoon = lazy(() => import('./pages/ComingSoon'));
 
@@ -49,7 +45,6 @@ const App = () => {
 
     const routes = [
         {path: "/" , element: <Home/> , requireAdmin: false , requireAuth: false},
-        {path: "/books" , element: <PublishedBooks/> , requireAdmin: false , requireAuth: false},
         {path: "/books/:id" , element: <Book/> , requireAdmin: false , requireAuth: false},
         {path: "/cart" , element: <Cart/> , requireAdmin: false , requireAuth: true},
         {path: "/login" , element: <Login/> , requireAdmin: false , requireAuth: false},
@@ -64,9 +59,6 @@ const App = () => {
         {path: "/account/categories" , element: <Categories/> , requireAdmin: true , requireAuth: true},
         {path: "/account/categories/add" , element: <AddCategory/> , requireAdmin: true , requireAuth: true},
         {path: "/account/categories/:id/edit" , element: <EditCategory/> , requireAdmin: true , requireAuth: true},
-        {path: "/account/advertises" , element: <Advertises/> , requireAdmin: true , requireAuth: true},
-        {path: "/account/advertises/add" , element: <AddAdvertise/> , requireAdmin: true , requireAuth: true},
-        {path: "/account/advertises/:id/edit" , element: <EditAdvertise/> , requireAdmin: true , requireAuth: true},
         {path: "/account/orders" , element: <Orders/> , requireAdmin: false , requireAuth: true},
         {path: "/account/orders/:id" , element: <Order/> , requireAdmin: false , requireAuth: true},
         {path: "/account/users" , element: <Users/> , requireAdmin: true , requireAuth: true},

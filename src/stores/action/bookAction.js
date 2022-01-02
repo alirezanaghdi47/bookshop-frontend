@@ -39,32 +39,16 @@ export const readPublishedBook = (id, navigate) => async (dispatch) => {
         });
 };
 
-// read discounted books
-export const readDiscountedBooks = (query) => async (dispatch) => {
+// read relative books
+export const readRelativeBooks = (id) => async (dispatch) => {
 
-    await dispatch({type: t.GET_DISCOUNTED_BOOKS});
+    await dispatch({type: t.GET_RELATIVE_BOOKS});
     await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/book/discounted-books?${query}`)
+        .get(`${REACT_APP_ENDPOINT}/book/relative-books/${id}`)
         .then(async (res) => {
-            await dispatch({type: t.SET_DISCOUNTED_BOOKS, payload: res.data});
-        })
-        .catch(async (err) => {
-            console.log(err);
-        });
-};
-
-// read newest books
-export const readNewestBooks = (query) => async (dispatch) => {
-
-    await dispatch({type: t.GET_NEWEST_BOOKS});
-    await delay(500);
-
-    await axios
-        .get(`${REACT_APP_ENDPOINT}/book/newest-books?${query}`)
-        .then(async (res) => {
-            await dispatch({type: t.SET_NEWEST_BOOKS, payload: res.data});
+            await dispatch({type: t.SET_RELATIVE_BOOKS, payload: res.data});
         })
         .catch(async (err) => {
             console.log(err);

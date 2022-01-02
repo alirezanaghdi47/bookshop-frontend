@@ -3,6 +3,7 @@
 //===== component =====//
 //=====================//
 
+import Alert from "../../core/Alert";
 import Header from './header/Header';
 import Footer from './footer/Footer';
 
@@ -11,6 +12,9 @@ const MainLayout = ({children}) => {
 
     return (
         <>
+
+            {/* alert */}
+            <Alert/>
 
             {/* header */}
             <header

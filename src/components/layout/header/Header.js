@@ -2,7 +2,6 @@
 //===== component =====//
 //=====================//
 
-import Navbar from './Navbar';
 import Logo from './Logo';
 import Actionbar from './Actionbar';
 
@@ -14,18 +13,13 @@ const Header = () => {
 
             <div className="row g-3">
 
-                {/* navbar */}
-                <div className="col-6 col-md-8 d-flex justify-content-start align-items-center">
-                    <Navbar/>
-                </div>
-
                 {/* logo */}
-                <div className="col-12 col-md-8 d-flex justify-content-center align-items-center">
+                <div className="col-14 col-sm-8 d-flex justify-content-start align-items-center">
                     <Logo/>
                 </div>
 
                 {/* actionbar */}
-                <div className="col-6 col-md-8 d-flex justify-content-end align-items-center">
+                <div className="col-10 col-sm-16 d-flex justify-content-end align-items-center">
                     <Actionbar/>
                 </div>
 

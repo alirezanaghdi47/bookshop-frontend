@@ -19,12 +19,7 @@ const initialState = {
         data: {},
         isLoading: false
     },
-    discountedBooks: {
-        data: [],
-        count: 0,
-        isLoading: false
-    },
-    newestBooks: {
+    relativeBooks: {
         data: [],
         count: 0,
         isLoading: false
@@ -100,35 +95,18 @@ const bookReducer = (state = initialState, action) => {
                     isLoading: false
                 }
             };
-        case t.GET_DISCOUNTED_BOOKS:
+        case t.GET_RELATIVE_BOOKS:
             return {
                 ...state,
-                discountedBooks: {
-                    ...state.discountedBooks,
+                relativeBooks: {
+                    ...state.relativeBooks,
                     isLoading: true
                 }
             };
-        case t.SET_DISCOUNTED_BOOKS:
+        case t.SET_RELATIVE_BOOKS:
             return {
                 ...state,
-                discountedBooks: {
-                    data: action.payload.data,
-                    count: action.payload.count,
-                    isLoading: false
-                }
-            };
-        case t.GET_NEWEST_BOOKS:
-            return {
-                ...state,
-                newestBooks: {
-                    ...state.newestBooks,
-                    isLoading: true
-                }
-            };
-        case t.SET_NEWEST_BOOKS:
-            return {
-                ...state,
-                newestBooks: {
+                relativeBooks: {
                     data: action.payload.data,
                     count: action.payload.count,
                     isLoading: false

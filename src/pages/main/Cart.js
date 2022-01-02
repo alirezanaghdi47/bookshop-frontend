@@ -14,7 +14,7 @@ import ShoppingList from '../../components/ui/ShoppingList';
 import Price from '../../components/ui/Price';
 import EmptyPlaceholder from '../../core/EmptyPlaceholder';
 import SliderPlaceholder from '../../components/ui/placeholder/BooksPlaceholder';
-import PricePlaceholder from '../../components/ui/placeholder/PricePlaceholder';
+import Placeholder from "../../core/Placeholder";
 
 
 const Cart = () => {
@@ -91,7 +91,12 @@ const Cart = () => {
 
                                 {
                                     cartIsLoading ? (
-                                        <PricePlaceholder/>
+                                        <Placeholder
+                                            backgroundColor="#e0e0e0"
+                                            animationColor="#eeeeee"
+                                            borderRadius="0.5rem"
+                                            height={90}
+                                        />
                                     ) : (
                                         <Price cart={cart}/>
                                     )

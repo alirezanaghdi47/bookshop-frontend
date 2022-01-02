@@ -1,7 +1,7 @@
 import {useLayoutEffect} from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {readPublishedBook} from '../../stores/action/bookAction';
+import {readRelativeBooks, readPublishedBook} from '../../stores/action/bookAction';
 import {useMediaQuery} from 'react-responsive';
 import {Helmet} from 'react-helmet';
 
@@ -15,6 +15,7 @@ import Addressbar from '../../components/ui/Addressbar';
 import Summary from '../../components/ui/Summary';
 import Specification from '../../components/ui/Specification';
 import Information from '../../components/ui/Information';
+import Swiper from "../../core/Swiper";
 import Placeholder from '../../core/Placeholder';
 
 
@@ -28,9 +29,15 @@ const Book = () => {
         data: book,
         isLoading: bookIsLoading
     } = useSelector((state) => state.book.book);
+    const {
+        data: relativeBooks,
+        count: relativeBooksCount,
+        isLoading: relativeBooksIsLoading
+    } = useSelector((state) => state.book.relativeBooks);
 
     useLayoutEffect(() => {
         dispatch(readPublishedBook(params.id, navigate));
+        dispatch(readRelativeBooks(params.id));
         // eslint-disable-next-line
     }, [params]);
 
@@ -117,6 +124,26 @@ const Book = () => {
                             ) : (
                                 <Information book={book}/>
                             )
+                        }
+
+                        {/* relative books */}
+                        {
+                            (relativeBooksIsLoading || relativeBooksCount > 4) && (
+                                <h1 className="fs-4 fw-bold text-primary"> کتاب های مرتبط</h1>
+                            )
+                        }
+
+                        {
+                            relativeBooksIsLoading ? (
+                                <Placeholder
+                                    backgroundColor="#e0e0e0"
+                                    animationColor="#eeeeee"
+                                    borderRadius="0.5rem"
+                                    height={320}
+                                />
+                            ) : relativeBooksCount > 4 ? (
+                                <Swiper books={relativeBooks}/>
+                            ) : null
                         }
 
                     </div>

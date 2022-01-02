@@ -12,7 +12,7 @@ import Image from "../../../core/Image";
 const Actionbar = () => {
 
     const location = useLocation();
-    const isTablet = useMediaQuery({maxWidth: 768});
+    const isMobile = useMediaQuery({maxWidth: 576});
     const {token, name, avatarUrl} = useSelector((state) => state.user.profile);
 
     return (
@@ -22,8 +22,8 @@ const Actionbar = () => {
                 to="/cart"
                 className={`btn btn-sm btn-link ${location.pathname === '/cart' ? 'link-primary' : 'link-gray'} position-relative ms-2`}
             >
-                <i className={`far fa-shopping-bag fs-3 ${!isTablet ? 'ms-2' : ''}`}/>
-                {!isTablet && 'سبد خرید'}
+                <i className={`far fa-shopping-bag fs-3 ${!isMobile ? 'ms-2' : ''}`}/>
+                {!isMobile && 'سبد خرید'}
             </Link>
 
             {
@@ -36,7 +36,7 @@ const Actionbar = () => {
                             avatarUrl ? (
                                 <>
                                     <div
-                                        className={`d-flex justify-content-center align-items-center ${!isTablet ? 'ms-2' : ''}`}
+                                        className={`d-flex justify-content-center align-items-center ${!isMobile ? 'ms-2' : ''}`}
                                         style={{width: 25, height: 25}}
                                     >
                                         <Image
@@ -48,20 +48,20 @@ const Actionbar = () => {
                                             placeholderSrc={process.env.PUBLIC_URL + '/images/placeholder.png'}
                                         />
                                     </div>
-                                    {!isTablet && name}
+                                    {!isMobile && name}
                                 </>
                             ) : (
                                 <>
-                                    <i className={`far fa-user fs-4 ${location.pathname === '/account/dashboard' ? 'text-primary' : 'text-gray'} ${!isTablet ? 'ms-2' : ''}`}/>
-                                    {!isTablet && name}
+                                    <i className={`far fa-user fs-4 ${location.pathname === '/account/dashboard' ? 'text-primary' : 'text-gray'} ${!isMobile ? 'ms-2' : ''}`}/>
+                                    {!isMobile && name}
                                 </>
                             )
                         }
                     </Link>
                 ) : (
                     <Link to="/login" className="btn btn-sm btn-link link-gray me-2">
-                        <i className={`far fa-sign-in fs-4 ${!isTablet ? 'ms-2' : ''}`}/>
-                        {!isTablet && 'ورود | عضویت'}
+                        <i className={`far fa-sign-in fs-4 ${!isMobile ? 'ms-2' : ''}`}/>
+                        {!isMobile && 'ورود | عضویت'}
                     </Link>
                 )
             }

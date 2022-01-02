@@ -50,19 +50,20 @@
   z-index: 100 !important;
   width: 3rem !important;
   height: 3rem !important;
-  background: #ffffff !important;
+  background: #4d1dfe !important;
   border-radius: 0.5rem !important;
-  box-shadow: rgba(17, 17, 26, 0.1) 0 8px 24px, rgba(17, 17, 26, 0.1) 0 16px 56px !important;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px,
+  rgba(17, 17, 26, 0.1) 0px 16px 56px !important;
 
   &::before {
-    font-weight: bold !important;
     font-family: "Font Awesome 5 Pro" !important;
-    color: #4d1dfe !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
   }
 }
 
 .slick-prev {
-  right: 1rem !important;
+  right: 1.1rem !important;
 
   &::before {
     content: "\f054" !important;
@@ -70,24 +71,18 @@
 }
 
 .slick-next {
-  left: 1rem !important;
+  left: 1.1rem !important;
 
   &::before {
     content: "\f053" !important;
   }
 }
 
+.slick-disabled {
+  opacity: 0.75 !important;
+}
+
 .swiper__item {
   direction: rtl !important;
   min-height: 360px !important;
-}
-
-.carousel {
-  width: 100% !important;
-  height: 100% !important;
-
-  &__item {
-    border-radius: 0.5rem !important;
-    overflow: hidden !important;
-  }
 }

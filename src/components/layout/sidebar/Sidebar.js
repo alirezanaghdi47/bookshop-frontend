@@ -44,18 +44,12 @@ const adminRoutes = [
     },
     {
         id: 5,
-        title: 'تبلیغات',
-        icon: 'far fa-ad fs-5',
-        href: '/account/advertises'
-    },
-    {
-        id: 6,
         title: 'سفارشات',
         icon: 'far fa-shopping-basket fs-5',
         href: '/account/orders'
     },
     {
-        id: 7,
+        id: 6,
         title: 'اطلاعات کاربری',
         icon: 'far fa-info-circle fs-5',
         href: '/account/profile'

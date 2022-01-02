@@ -1,6 +1,6 @@
 const cache_names = {
-    static: 'bookshop-static-v2.5',
-    dynamic: 'bookshop-dynamic-v2.5',
+    static: 'bookshop-static-v2.6',
+    dynamic: 'bookshop-dynamic-v2.6',
 };
 
 const cache_urls = [
@@ -32,6 +32,7 @@ const cache_urls = [
     './images/auth-background.svg',
     './images/coming-soon.svg',
     './images/empty-cart.svg',
+    './images/server-down.svg',
     './images/no-data.svg',
     './images/not-found.svg',
     './images/placeholder.png',
@@ -60,8 +61,9 @@ self.addEventListener('fetch', (e) => {
     // stale while revalidate
     if (
         e.request.method === 'GET' &&
-        !e.request.url.startsWith('https://alireza-bookshop.herokuapp.com/api') &&
-        !e.request.url.startsWith('chrome-extension')
+        e.request.url.startsWith('https://bookshop-alirezanaghdi.ir') &&
+        e.request.url.startsWith('https://www.bookshop-alirezanaghdi.ir') &&
+        e.request.url.startsWith('https://localhost:3000')
     ) {
         e.respondWith(
             caches.match(e.request).then(cache => {
@@ -78,25 +80,28 @@ self.addEventListener('fetch', (e) => {
     }
 
     // network first
-    if (
-        e.request.method === 'GET' &&
-        e.request.url.startsWith('https://alireza-bookshop.herokuapp.com/api')
-    ) {
-        e.respondWith(
-            fetch(e.request)
-                .then(networkResponse => {
-                    return caches.open(cache_names['dynamic']).then(cache => {
-                        cache.put(e.request, networkResponse.clone());
-                        return networkResponse;
-                    });
-                })
-        );
-    }
+    // if (
+    //     e.request.method === 'GET' &&
+    //     e.request.url.startsWith('https://alireza-bookshop.herokuapp.com/api')
+    // ) {
+    //     e.respondWith(
+    //         fetch(e.request)
+    //             .then(networkResponse => {
+    //                 return caches.open(cache_names['dynamic']).then(cache => {
+    //                     cache.put(e.request, networkResponse.clone());
+    //                     return networkResponse;
+    //                 });
+    //             })
+    //     );
+    // }
 
     // network only
     if (
-        e.request.method !== "GET" ||
-        e.request.url.startsWith('chrome-extension')
+        (
+            e.request.method !== "GET" &&
+            e.request.url.startsWith('https://alireza-bookshop.herokuapp.com/api')
+        )
+        || e.request.url.startsWith('chrome-extension')
     ) {
         e.respondWith(
             fetch(e.request).then(networkResponse => networkResponse)

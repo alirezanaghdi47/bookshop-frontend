@@ -9,7 +9,7 @@ import {range} from '../../../utils/functions';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 
-const SliderPlaceholder = ({count, xs, sm, md, lg, xl}) => {
+const BooksPlaceholder = ({count, xs, sm, md, lg, xl}) => {
 
     const items = range(0, count);
 
@@ -43,7 +43,7 @@ const SliderPlaceholder = ({count, xs, sm, md, lg, xl}) => {
     );
 };
 
-SliderPlaceholder.prototype = {
+BooksPlaceholder.prototype = {
     count: PropTypes.number,
     xs: PropTypes.number,
     sm: PropTypes.number,
@@ -52,4 +52,4 @@ SliderPlaceholder.prototype = {
     xl: PropTypes.number
 };
 
-export default SliderPlaceholder;
+export default BooksPlaceholder;

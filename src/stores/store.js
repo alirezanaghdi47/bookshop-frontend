@@ -7,7 +7,6 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import thunk from 'redux-thunk';
 
 // reducers
-import advertiseReducer from './reducer/advertiseReducer';
 import bookReducer from './reducer/bookReducer';
 import cartReducer from './reducer/cartReducer';
 import categoryReducer from './reducer/categoryReducer';
@@ -23,12 +22,11 @@ const persistConfig = {
     storage: storage,
     whitelist: ['user', 'cart'],
     transforms: [userPersist, cartPersist],
-    stateReconciler: autoMergeLevel2
+    stateReconciler: autoMergeLevel2,
 };
 
 // reducer config
 const reducers = combineReducers({
-    advertise: advertiseReducer,
     book: bookReducer,
     cart: cartReducer,
     category: categoryReducer,

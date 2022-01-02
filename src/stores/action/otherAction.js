@@ -1,5 +1,13 @@
 import * as t from './../actionType';
 
+export const showAlert = () => {
+    return {type: t.SHOW_ALERT};
+};
+
+export const hideAlert = () => {
+    return {type: t.HIDE_ALERT};
+};
+
 export const showLoading = () => {
     return {type: t.SHOW_LOADING};
 };

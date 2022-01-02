@@ -7,13 +7,13 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../../styles/core/react-slider.scss";
+import "../styles/core/react-slider.scss";
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import BookItem from '../../components/ui/BookItem';
+import BookItem from '../components/ui/BookItem';
 
 //====================//
 //===== variable =====//
@@ -22,6 +22,7 @@ import BookItem from '../../components/ui/BookItem';
 const settings = {
     dots: false,
     speed: 500,
+    infinite: false,
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,

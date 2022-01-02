@@ -1,7 +1,6 @@
-import {useLayoutEffect} from 'react';
+import {useLayoutEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {readPublishedAdvertises} from '../../stores/action/advertiseAction';
-import {readDiscountedBooks, readNewestBooks} from '../../stores/action/bookAction';
+import {readPublishedBooks} from '../../stores/action/bookAction';
 import {Helmet} from 'react-helmet';
 
 //=====================//
@@ -9,41 +8,36 @@ import {Helmet} from 'react-helmet';
 //=====================//
 
 import PageAnimation from "../../core/animation/PageAnimation";
-import MainLayout from "../../components/layout/MainLayout";
-import Carousel from '../../core/slider/Carousel';
-import Swiper from '../../core/slider/Swiper';
-import SliderPlaceholder from '../../components/ui/placeholder/SliderPlaceholder';
+import MainLayout from '../../components/layout/MainLayout';
+import BookList from '../../components/ui/BookList';
+import Searchbar from '../../components/ui/Searchbar';
+import Pagination from '../../core/Pagination';
+import EmptyPlaceholder from '../../core/EmptyPlaceholder';
+import SliderPlaceholder from '../../components/ui/placeholder/BooksPlaceholder';
+import PaginationPlaceholder from '../../components/ui/placeholder/PaginationPlaceholder';
 
 
 const Home = () => {
 
     const dispatch = useDispatch();
+    const [page, setPage] = useState(0);
     const {
-        data: publishedAdvertises,
-        isLoading: publishedAdvertisesIsLoading
-    } = useSelector((state) => state.advertise.publishedAdvertises);
-    const {
-        data: discountedBooks,
-        isLoading: discountedBooksIsLoading
-    } = useSelector((state) => state.book.discountedBooks);
-    const {
-        data: newestBooks,
-        isLoading: newestBooksIsLoading
-    } = useSelector((state) => state.book.newestBooks);
+        data: publishedBooks,
+        count: publishedBooksCount,
+        isLoading: publishedBooksIsLoading
+    } = useSelector((state) => state.book.publishedBooks);
 
     useLayoutEffect(() => {
-        dispatch(readPublishedAdvertises(`page=${0}&&limit=${5}`));
-        dispatch(readDiscountedBooks(`page=${0}&&limit=${5}`));
-        dispatch(readNewestBooks(`page=${0}&&limit=${5}`));
+        dispatch(readPublishedBooks(`page=${page}&&limit=${12}`));
         // eslint-disable-next-line
-    }, []);
+    }, [page]);
 
     return (
         <>
 
             <Helmet>
                 <title>فروشگاه کتاب</title>
-                <meta name="description" content="فروشگاه کتاب"/>
+                <meta name="description" content="صفحه اصلی فروشگاه کتاب"/>
             </Helmet>
 
             <PageAnimation>
@@ -52,34 +46,47 @@ const Home = () => {
 
                     <div className="vstack gap-3">
 
-                        {/* carousel + carousel placeholder */}
+                        {/* searchbar */}
+                        <Searchbar page={page}/>
+
+                        {/* placeholder */}
                         {
-                            publishedAdvertisesIsLoading ? (
-                                <SliderPlaceholder/>
-                            ) : (
-                                <Carousel advertises={publishedAdvertises}/>
+                            publishedBooksIsLoading && (
+                                <>
+                                    <SliderPlaceholder count={12} xs={24} sm={12} md={8} lg={8} xl={6}/>
+                                    <PaginationPlaceholder/>
+                                </>
                             )
                         }
 
-                        {/* slider discount + slider placeholder */}
-                        <h1 className="fs-4 fw-bold text-primary">تخفیف های شگفت انگیز</h1>
-
+                        {/* book list */}
                         {
-                            discountedBooksIsLoading ? (
-                                <SliderPlaceholder/>
-                            ) : (
-                                <Swiper books={discountedBooks}/>
+                            !publishedBooksIsLoading && publishedBooksCount > 0 && publishedBooks?.length > 0 && (
+                                <BookList books={publishedBooks}/>
                             )
                         }
 
-                        {/* slider newest + slider placeholder */}
-                        <h1 className="fs-4 fw-bold text-primary">جدیدترین ها</h1>
-
+                        {/* pagination */}
                         {
-                            newestBooksIsLoading ? (
-                                <SliderPlaceholder/>
-                            ) : (
-                                <Swiper books={newestBooks}/>
+                            !publishedBooksIsLoading && publishedBooksCount > 12 && publishedBooks?.length !== 0 && (
+                                <Pagination
+                                    pageCount={Math.ceil(publishedBooksCount / 5)}
+                                    page={page}
+                                    onPageChange={(page) => setPage(page)}
+                                />
+                            )
+                        }
+
+                        {/* no data */}
+                        {
+                            !publishedBooksIsLoading && publishedBooks?.length === 0 && (
+                                <EmptyPlaceholder
+                                    src={process.env.PUBLIC_URL + '/images/no-data.svg'}
+                                    alt="کتابی یافت نشد"
+                                    title="کتابی یافت نشد"
+                                    width={150}
+                                    heeight={150}
+                                />
                             )
                         }
 

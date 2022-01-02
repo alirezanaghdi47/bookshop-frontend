@@ -4,6 +4,7 @@
 //=====================//
 
 import CopyRight from "./CopyRight";
+import Links from "./Links";
 
 
 const Footer = () => {
@@ -13,9 +14,14 @@ const Footer = () => {
 
             <div className="row g-3">
 
-                {/* copy right */}
-                <div className="col-24 d-flex justify-content-center align-items-center">
+                {/* copyright */}
+                <div className="col-12 d-flex justify-content-start align-items-center">
                     <CopyRight/>
+                </div>
+
+                {/* links */}
+                <div className="col-12 d-flex justify-content-end align-items-center">
+                    <Links/>
                 </div>
 
             </div>
