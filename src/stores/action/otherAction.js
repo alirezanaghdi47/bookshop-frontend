@@ -7,11 +7,3 @@ export const showLoading = () => {
 export const hideLoading = () => {
     return {type: t.HIDE_LOADING};
 };
-
-export const startTimer = () => {
-    return {type: t.STARTING_TIMER};
-};
-
-export const stopTimer = () => {
-    return {type: t.STOPPING_TIMER};
-};
