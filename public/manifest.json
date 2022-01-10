@@ -40,7 +40,7 @@
   "id": "/",
   "display": "standalone",
   "theme_color": "#4D1DFE",
-  "background_color": "#ffffff",
+  "background_color": "#4D1DFE",
   "dir": "rtl",
   "lang": "fa",
   "prefer_related_applications": false

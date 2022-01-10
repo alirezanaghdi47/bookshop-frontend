@@ -1,11 +1,10 @@
 .tippy-box {
-  background: #4d1dfe !important;
+  background: #ffffff !important;
+  border-radius: 0.5rem!important;
+  overflow: hidden!important;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px!important;
 }
 
 .tippy-content {
-  padding: 0.5rem!important;
-}
-
-.tippy-arrow{
-  color: #4d1dfe !important;
+  padding: 0.75rem!important;
 }

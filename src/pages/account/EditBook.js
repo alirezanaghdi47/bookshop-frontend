@@ -18,7 +18,7 @@ import FileInput from '../../core/form/FileInput';
 import SelectBox from '../../core/form/SelectBox';
 import NumberInput from '../../core/form/NumberInput';
 import TextInput from '../../core/form/TextInput';
-import Textarea from '../../core/form/Textarea';
+import Textarea from "../../core/form/Textarea";
 
 //====================//
 //===== variable =====//
@@ -251,7 +251,7 @@ const EditBook = () => {
                                     options={{}}
                                 />
                             </div>
-
+                            
                             <div className="d-flex flex-column justify-content-center align-items-start w-100">
                                 <Textarea
                                     label="جزییات کتاب"

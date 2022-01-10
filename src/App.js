@@ -71,6 +71,7 @@ const App = () => {
         <>
             {/* routes */}
             <AnimatePresence
+                initial={false}
                 exitBeforeEnter
                 onExitComplete={() => window.scrollTo(0, 0)}
             >

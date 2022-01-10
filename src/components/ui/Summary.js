@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 //===== component =====//
 //=====================//
 
-import Preview from './Preview';
+import Gallery from './Gallery';
 import Detail from './Detail';
 
 
@@ -15,8 +15,8 @@ const Summary = ({book}) => {
 
             <div className="row g-3 gy-4 w-100">
 
-                {/* preview */}
-                <Preview book={book}/>
+                {/* gallery */}
+                <Gallery book={book}/>
 
                 {/* detail */}
                 <Detail book={book}/>

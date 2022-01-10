@@ -8,12 +8,6 @@ import {useDropzone} from 'react-dropzone';
 
 import '../../styles/core/react-dropzone.scss';
 
-//=====================//
-//===== component =====//
-//=====================//
-
-import Image from "../Image";
-
 
 const AvatarInput = ({
                          label,
@@ -34,12 +28,12 @@ const AvatarInput = ({
         maxSize: maxSize,
         maxFiles: 1,
         onDrop: async (files) => {
+            await setFieldValue(name, files[0]);
             await setFile(
                 Object.assign(files[0], {
                     preview: URL.createObjectURL(files[0])
                 })
             );
-            await setFieldValue(name, files[0]);
         }
     });
 
@@ -74,14 +68,13 @@ const AvatarInput = ({
                 {
                     ((file?.preview && value) || preview) && (
                         <aside className="w-100 h-100 bg-light rounded">
-                            <Image
+                            <img
                                 src={file.preview || preview}
                                 alt="عکس پروفایل"
                                 width="100%"
                                 height="100%"
                                 style={{maxHeight: '8.75rem'}}
                                 className="img-fluid bg-light rounded object-center object-cover"
-                                placeholderSrc={process.env.PUBLIC_URL + '/images/placeholder.png'}
                             />
                         </aside>
                     )

@@ -50,15 +50,15 @@ const Login = () => {
                             <Tooltip
                                 content={
                                     <div className="d-flex flex-column justify-content-center align-items-center">
-                                        <h3 className="fs-5 fw-bold text-white mb-2">اطلاعات مدیر سایت</h3>
-                                        <p className="fs-6 fw-bold text-white mb-1">ایمیل ( alirezanaghdi47@gmail.com )</p>
-                                        <p className="fs-6 fw-bold text-white">رمز عبور ( 12345678 )</p>
+                                        <h3 className="fs-5 fw-bold text-dark mb-2">اطلاعات مدیر سایت</h3>
+                                        <p className="fs-6 fw-bold text-gray mb-1">ایمیل ( alirezanaghdi47@gmail.com )</p>
+                                        <p className="fs-6 fw-bold text-gray">رمز عبور ( 12345678 )</p>
                                     </div>
                                 }
                                 placement="top"
                             >
                                 <button className="btn btn-icon btn-sm btn-rounded btn-link link-primary">
-                                    <i className="far fa-info-circle fs-2"/>
+                                    راهنما
                                 </button>
                             </Tooltip>
                         </div>

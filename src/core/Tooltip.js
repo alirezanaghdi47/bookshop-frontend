@@ -14,7 +14,7 @@ const Tooltip = ({children, content, placement}) => {
     return (
         <Tippy
             content={content}
-            arrow
+            arrow={false}
             duration={300}
             placement={placement}
         >

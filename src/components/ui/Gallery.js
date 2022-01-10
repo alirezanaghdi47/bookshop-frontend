@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import Image from '../../core/Image';
 
 
-const Preview = ({book}) => {
+const Gallery = ({book}) => {
 
     return (
         <div className="col-24 col-sm-12 col-md-12 col-lg-12 col-xl-10">
@@ -30,8 +30,8 @@ const Preview = ({book}) => {
     );
 };
 
-Preview.prototype = {
+Gallery.prototype = {
     book: PropTypes.object
 };
 
-export default Preview;
+export default Gallery;

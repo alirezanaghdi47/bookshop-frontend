@@ -9,12 +9,6 @@ import {formatBytes} from '../../utils/functions';
 
 import '../../styles/core/react-dropzone.scss';
 
-//=====================//
-//===== component =====//
-//=====================//
-
-import Image from "../Image";
-
 
 const FileInput = ({
                        label,
@@ -33,12 +27,12 @@ const FileInput = ({
         maxSize: maxSize,
         maxFiles: 1,
         onDrop: async (files) => {
+            await setFieldValue(name, files[0]);
             await setFile(
                 Object.assign(files[0], {
                     preview: URL.createObjectURL(files[0])
                 })
             );
-            await setFieldValue(name, files[0]);
         }
     });
 
@@ -68,12 +62,11 @@ const FileInput = ({
                 {
                     file?.preview && value && (
                         <aside className="ms-3">
-                            <Image
+                            <img
                                 src={file.preview}
                                 alt={file.name}
                                 className="img-fluid bg-light rounded object-center object-cover"
                                 style={{maxHeight: '8rem'}}
-                                placeholderSrc={process.env.PUBLIC_URL + '/images/placeholder.png'}
                             />
                         </aside>
                     )

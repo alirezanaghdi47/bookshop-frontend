@@ -50,18 +50,6 @@ export const verifyPasswordSchema = Yup.object().shape({
 //===== account =====//
 //===================//
 
-export const addAdvertiseSchema = Yup.object().shape({
-    image: Yup.mixed().required('عکس تبلیغ الزامی است'),
-    book: Yup.string().required('کتاب مورد تبلیغ الزامی است'),
-    isPublished: Yup.boolean().required('وضعیت انتشار تبلیغ الزامی است')
-});
-
-export const editAdvertiseSchema = Yup.object().shape({
-    image: Yup.mixed(),
-    book: Yup.string().required('کتاب مورد تبلیغ الزامی است'),
-    isPublished: Yup.boolean().required('وضعیت انتشار تبلیغ الزامی است')
-});
-
 export const addCategorySchema = Yup.object().shape({
     name: Yup.string()
         .required('عنوان دسته بندی الزامی است')

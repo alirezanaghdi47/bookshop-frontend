@@ -32,7 +32,7 @@ const ShoppingItem = ({order}) => {
     };
 
     return (
-        <article className="card h-100" style={{minHeight: 360}}>
+        <article className="card h-100">
 
             <div className="card-header">
 

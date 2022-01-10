@@ -12,7 +12,7 @@ import Image from '../../core/Image';
 const BookItem = ({book}) => {
 
     return (
-        <article className="card h-100" style={{minHeight: 360}}>
+        <article className="card h-100">
 
             <div className="card-header">
 

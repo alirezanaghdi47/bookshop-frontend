@@ -1,6 +1,15 @@
 
 .slick-list {
+  display: flex !important;
   margin: 0 -0.5rem !important;
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: 100% !important;
 }
 
 .slick-slide > div {
@@ -50,20 +59,20 @@
   z-index: 100 !important;
   width: 3rem !important;
   height: 3rem !important;
-  background: #4d1dfe !important;
-  border-radius: 0.5rem !important;
+  background: #ffffff !important;
+  border-radius: 1rem !important;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px,
   rgba(17, 17, 26, 0.1) 0px 16px 56px !important;
 
   &::before {
     font-family: "Font Awesome 5 Pro" !important;
-    color: #ffffff !important;
+    color: #4d1dfe !important;
     opacity: 1 !important;
   }
 }
 
 .slick-prev {
-  right: 1.1rem !important;
+  right: 1rem !important;
 
   &::before {
     content: "\f054" !important;
@@ -71,7 +80,7 @@
 }
 
 .slick-next {
-  left: 1.1rem !important;
+  left: 1rem !important;
 
   &::before {
     content: "\f053" !important;
@@ -83,6 +92,8 @@
 }
 
 .swiper__item {
+  display: grid !important;
   direction: rtl !important;
   min-height: 360px !important;
+  height: 100% !important;
 }

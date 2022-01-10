@@ -43,8 +43,6 @@ export const GET_CHART = 'GET_CHART';
 export const SET_CHART = 'SET_CHART';
 
 // other
-export const SHOW_ALERT = 'SHOW_ALERT';
-export const HIDE_ALERT = 'HIDE_ALERT';
 export const SHOW_LOADING = 'SHOW_LOADING';
 export const HIDE_LOADING = 'HIDE_LOADING';
 export const STARTING_TIMER = 'STARTING_TIMER';
