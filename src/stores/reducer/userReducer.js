@@ -24,8 +24,6 @@ const initialState = {
         postalCode: '',
         token: '',
         expireToken: 0,
-        forgetKey: '',
-        expireForgetKey: 0
     }
 };
 
@@ -51,25 +49,6 @@ const userReducer = (state = initialState, action) => {
                     expireToken: action.payload.exp
                 }
             };
-        case t.FORGET_PASSWORD:
-        case t.RESEND_KEY:
-            return {
-                ...state,
-                profile: {
-                    ...state.profile,
-                    email: action.payload.email,
-                    expireForgetKey: action.payload.expireForgetKey
-                }
-            };
-        case t.VERIFY_KEY:
-            return {
-                ...state,
-                profile: {
-                    ...state.profile,
-                    forgetKey: action.payload
-                }
-            };
-        case t.CONFIRM_PASSWORD:
         case t.LOGOUT:
         case t.EXPIRE:
             return {

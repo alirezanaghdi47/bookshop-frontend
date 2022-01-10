@@ -4,10 +4,6 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const EXPIRE = 'EXPIRE';
 export const UPDATE_USER = 'UPDATE_USER';
-export const FORGET_PASSWORD = 'FORGET_PASSWORD';
-export const RESEND_KEY = 'RESEND_KEY';
-export const VERIFY_KEY = 'VERIFY_KEY';
-export const CONFIRM_PASSWORD = 'CONFIRM_PASSWORD';
 export const DELETE_USER_AVATAR = 'DELETE_USER_AVATAR';
 
 // book

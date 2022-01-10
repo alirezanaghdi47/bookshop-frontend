@@ -1,6 +1,6 @@
 {
   "name": "bookshop-frontend",
-  "version": "2.6.5",
+  "version": "2.7",
   "private": true,
   "dependencies": {
     "@szhsin/react-menu": "^2.3.0",

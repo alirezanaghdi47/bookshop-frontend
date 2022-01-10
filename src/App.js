@@ -21,9 +21,6 @@ const Cart = lazy(() => import('./pages/main/Cart'));
 const Book = lazy(() => import('./pages/main/Book'));
 const Login = lazy(() => import('./pages/auth/Login'));
 const Register = lazy(() => import('./pages/auth/Register'));
-const VerifyPassword = lazy(() => import('./pages/auth/VerifyPassword'));
-const VerifyKey = lazy(() => import('./pages/auth/VerifyKey'));
-const ForgetPassword = lazy(() => import('./pages/auth/ForgetPassword'));
 const Dashboard = lazy(() => import('./pages/account/Dashboard'));
 const Books = lazy(() => import('./pages/account/Books'));
 const AddBook = lazy(() => import('./pages/account/AddBook'));
@@ -49,9 +46,6 @@ const App = () => {
         {path: "/cart" , element: <Cart/> , requireAdmin: false , requireAuth: true},
         {path: "/login" , element: <Login/> , requireAdmin: false , requireAuth: false},
         {path: "/register" , element: <Register/> , requireAdmin: false , requireAuth: false},
-        {path: "/forget-password" , element: <ForgetPassword/> , requireAdmin: false , requireAuth: false},
-        {path: "/verify-key" , element: <VerifyKey/> , requireAdmin: false , requireAuth: false},
-        {path: "/verify-password" , element: <VerifyPassword/> , requireAdmin: false , requireAuth: false},
         {path: "/account/dashboard" , element: <Dashboard/> , requireAdmin: false , requireAuth: true},
         {path: "/account/books" , element: <Books/> , requireAdmin: true , requireAuth: true},
         {path: "/account/books/add" , element: <AddBook/> , requireAdmin: true , requireAuth: true},
