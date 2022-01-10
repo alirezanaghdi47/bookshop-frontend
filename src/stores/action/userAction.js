@@ -1,8 +1,7 @@
 import * as t from '../actionType';
 import axios from 'axios';
-import {hideLoading, showLoading, startTimer} from './otherAction';
+import {hideLoading, showLoading} from './otherAction';
 import jwtDecode from 'jwt-decode';
-import {delay} from '../../utils/functions';
 import {toast} from 'react-toastify';
 
 const {REACT_APP_ENDPOINT, REACT_APP_ADMIN_ACL} = process.env;
@@ -13,7 +12,6 @@ export const readUsers = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_USERS});
-    await delay(500);
 
     await axios
         .get(`${REACT_APP_ENDPOINT}/user/users?${query}`, {
@@ -33,7 +31,6 @@ export const readChart = () => async (dispatch, getState) => {
     const {token, acl} = getState().user.profile;
 
     await dispatch({type: t.GET_CHART});
-    await delay(500);
 
     await axios
         .get(
@@ -54,7 +51,6 @@ export const readChart = () => async (dispatch, getState) => {
 export const register = (payload, navigate) => async (dispatch) => {
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .post(`${REACT_APP_ENDPOINT}/user/register`, payload)
@@ -74,7 +70,6 @@ export const register = (payload, navigate) => async (dispatch) => {
 export const login = (payload, navigate) => async (dispatch) => {
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .post(`${REACT_APP_ENDPOINT}/user/login`, payload)
@@ -97,7 +92,6 @@ export const login = (payload, navigate) => async (dispatch) => {
 // logout
 export const logout = (navigate) => async (dispatch) => {
     await navigate('/');
-    await delay(350);
     await dispatch({type: t.LOGOUT});
     await toast.error('شما از اکانت خود خارج شدید');
 };
@@ -114,7 +108,6 @@ export const updateUser = (payload) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .put(`${REACT_APP_ENDPOINT}/user/edit-user`, payload, {
@@ -140,7 +133,6 @@ export const deleteAvatarUser = (navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .delete(`${REACT_APP_ENDPOINT}/user/delete-avatar-user`, {

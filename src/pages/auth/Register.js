@@ -49,8 +49,8 @@ const Register = () => {
 
                             <h2 className="fs-2 fw-bold text-primary">عضویت</h2>
 
-                            <Link to="/login" className="btn btn-sm btn-link link-danger text-decoration-none">
-                                بازگشت
+                            <Link to="/login" className="btn btn-sm btn-link link-gray text-decoration-none">
+                                ورود
                             </Link>
 
                         </div>
@@ -93,15 +93,6 @@ const Register = () => {
                             >
                                 عضویت
                             </button>
-                        </div>
-
-                        <div className="d-flex justify-content-between align-items-center w-100">
-                            <Link to="/login" className="btn btn-link btn-sm link-gray">
-                                ورود
-                            </Link>
-                            <Link to="/forget-password" className="btn btn-link btn-sm link-gray">
-                                فراموشی رمز
-                            </Link>
                         </div>
 
                     </div>

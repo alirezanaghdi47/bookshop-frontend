@@ -13,7 +13,6 @@ import PageAnimation from "../../core/animation/PageAnimation";
 import AuthLayout from '../../components/layout/AuthLayout';
 import TextInput from '../../core/form/TextInput';
 import PasswordInput from '../../core/form/PasswordInput';
-import Tooltip from "../../core/Tooltip";
 
 
 const Login = () => {
@@ -46,21 +45,13 @@ const Login = () => {
                     <div className="vstack gap-3">
 
                         <div className="d-flex justify-content-between align-items-center w-100">
+
                             <h2 className="fs-1 fw-bold text-primary">ورود</h2>
-                            <Tooltip
-                                content={
-                                    <div className="d-flex flex-column justify-content-center align-items-center">
-                                        <h3 className="fs-5 fw-bold text-dark mb-2">اطلاعات مدیر سایت</h3>
-                                        <p className="fs-6 fw-bold text-gray mb-1">ایمیل ( alirezanaghdi47@gmail.com )</p>
-                                        <p className="fs-6 fw-bold text-gray">رمز عبور ( 12345678 )</p>
-                                    </div>
-                                }
-                                placement="top"
-                            >
-                                <button className="btn btn-icon btn-sm btn-rounded btn-link link-primary">
-                                    راهنما
-                                </button>
-                            </Tooltip>
+
+                            <Link to="/register" className="btn btn-link btn-sm link-gray">
+                                عضویت
+                            </Link>
+
                         </div>
 
                         <div className="d-flex flex-column justify-content-center align-items-start w-100">
@@ -93,15 +84,6 @@ const Login = () => {
                             >
                                 ورود
                             </button>
-                        </div>
-
-                        <div className="d-flex justify-content-between align-items-center w-100">
-                            <Link to="/register" className="btn btn-link btn-sm link-gray">
-                                عضویت
-                            </Link>
-                            <Link to="/forget-password" className="btn btn-link btn-sm link-gray">
-                                فراموشی رمز
-                            </Link>
                         </div>
 
                     </div>

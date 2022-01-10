@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {hideLoading, showLoading} from './otherAction';
-import {delay} from '../../utils/functions';
 import {toast} from 'react-toastify';
 
 const {REACT_APP_ENDPOINT} = process.env;
@@ -14,7 +13,6 @@ export const createOrder = (book) => async (dispatch, getState) => {
     const order = cart?.orders?.find((item) => item.book._id === book._id);
 
     await dispatch(showLoading());
-    await delay(500);
 
     if (order?.entity === 5) {
         await dispatch(hideLoading());
@@ -44,7 +42,6 @@ export const updateOrder = (order, book) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .put(
@@ -68,7 +65,6 @@ export const deleteOrder = (order, book) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
 
     await axios
         .delete(`${REACT_APP_ENDPOINT}/order/delete-order/${order._id}`, {
