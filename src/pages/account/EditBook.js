@@ -90,7 +90,7 @@ const EditBook = () => {
         dispatch(readBook(params.id));
         dispatch(readCategories());
         // eslint-disable-next-line
-    }, [params]);
+    }, []);
 
     return (
         <>
@@ -125,6 +125,7 @@ const EditBook = () => {
                                     name="image"
                                     placeholder="عکس خود انتخاب کنید"
                                     acceptFiles={'.jpeg , .jpg , .png'}
+                                    preview={book.imageUrl}
                                     maxSize={1000000}
                                     value={formik.values?.image}
                                     setFieldValue={formik.setFieldValue}

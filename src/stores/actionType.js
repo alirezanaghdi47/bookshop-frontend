@@ -41,5 +41,5 @@ export const SET_CHART = 'SET_CHART';
 // other
 export const SHOW_LOADING = 'SHOW_LOADING';
 export const HIDE_LOADING = 'HIDE_LOADING';
-export const STARTING_TIMER = 'STARTING_TIMER';
-export const STOPPING_TIMER = 'STOPPING_TIMER';
+export const SHOW_ALERT = 'SHOW_ALERT';
+export const HIDE_ALERT = 'HIDE_ALERT';

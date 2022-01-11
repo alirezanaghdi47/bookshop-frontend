@@ -5,12 +5,18 @@
 
 import Header from './header/Header';
 import Footer from './footer/Footer';
+import Alert from "../../core/Alert";
 
 
 const MainLayout = ({children}) => {
 
     return (
         <>
+
+            {/* alert */}
+            <Alert>
+                برای کارکرد درست وب سایت از vpn استفاده نمایید
+            </Alert>
 
             {/* header */}
             <header

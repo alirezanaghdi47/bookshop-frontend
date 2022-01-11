@@ -26,7 +26,7 @@ const Order = () => {
     useLayoutEffect(() => {
         dispatch(readCart(params.id, navigate));
         // eslint-disable-next-line
-    }, [params]);
+    }, []);
 
     return (
         <>

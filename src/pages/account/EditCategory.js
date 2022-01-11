@@ -36,7 +36,7 @@ const EditCategory = () => {
     useLayoutEffect(() => {
         dispatch(readCategory(params.id));
         // eslint-disable-next-line
-    }, [params]);
+    }, []);
 
     return (
         <>

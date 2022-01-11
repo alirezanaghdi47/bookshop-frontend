@@ -2,6 +2,7 @@ import * as t from './../actionType';
 
 const initialState = {
     showingLoading: false,
+    showingAlert: true,
 };
 
 const otherReducer = (state = initialState, action) => {
@@ -15,6 +16,16 @@ const otherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 showingLoading: false
+            };
+        case t.SHOW_ALERT:
+            return {
+                ...state,
+                showingAlert: true
+            };
+        case t.HIDE_ALERT:
+            return {
+                ...state,
+                showingAlert: false
             };
         default:
             return state;

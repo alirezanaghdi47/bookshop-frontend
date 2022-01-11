@@ -3,6 +3,7 @@ import axios from 'axios';
 import {hideLoading, showLoading} from './otherAction';
 import jwtDecode from 'jwt-decode';
 import {toast} from 'react-toastify';
+import {delay} from "../../utils/functions";
 
 const {REACT_APP_ENDPOINT, REACT_APP_ADMIN_ACL} = process.env;
 
@@ -92,6 +93,7 @@ export const login = (payload, navigate) => async (dispatch) => {
 // logout
 export const logout = (navigate) => async (dispatch) => {
     await navigate('/');
+    await delay(500);
     await dispatch({type: t.LOGOUT});
     await toast.error('شما از اکانت خود خارج شدید');
 };
@@ -99,6 +101,7 @@ export const logout = (navigate) => async (dispatch) => {
 // expire
 export const expire = (navigate) => async (dispatch) => {
     await navigate('/');
+    await delay(500);
     await dispatch({type: t.EXPIRE});
 };
 

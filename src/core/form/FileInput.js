@@ -15,6 +15,7 @@ const FileInput = ({
                        name,
                        value,
                        setFieldValue,
+                       preview,
                        placeholder,
                        acceptFiles,
                        maxSize,
@@ -22,7 +23,7 @@ const FileInput = ({
                    }) => {
 
     const [file, setFile] = useState({});
-    const {getRootProps, getInputProps} = useDropzone({
+    const {getRootProps, getInputProps, open} = useDropzone({
         accept: acceptFiles,
         maxSize: maxSize,
         maxFiles: 1,
@@ -55,18 +56,18 @@ const FileInput = ({
             </label>
 
             <div
-                {...getRootProps()}
-                className={`position-relative d-flex ${file?.preview && value ? 'justify-content-start' : 'justify-content-center'} align-items-center form-control form-control-lg border-dashed p-2 cursor-pointer`}
+                {...!preview ? getRootProps() : null}
+                className={`position-relative d-flex ${(file?.preview && value || preview) ? 'justify-content-start' : 'justify-content-center'} align-items-center form-control form-control-lg border-dashed p-2 cursor-pointer`}
                 style={{height: '10rem'}}
             >
                 {
-                    file?.preview && value && (
+                    ((file?.preview && value) || preview) && (
                         <aside className="ms-3">
                             <img
-                                src={file.preview}
+                                src={file.preview || preview}
                                 alt={file.name}
                                 className="img-fluid bg-light rounded object-center object-cover"
-                                style={{maxHeight: '8rem'}}
+                                style={{maxHeight: '8.75rem'}}
                             />
                         </aside>
                     )
@@ -82,14 +83,30 @@ const FileInput = ({
                 }
 
                 {
-                    file?.preview && value ? (
+                    file?.preview && value && (
                         <button
                             className="position-absolute top-0 start-0 btn btn-icon btn-rounded btn-danger m-3"
-                            onClick={handleClear}>
+                            onClick={handleClear}
+                        >
                             <i className="far fa-trash-alt fs-5"/>
                         </button>
-                    ) : (
-                        <p className="fs-5 fw-bold text-gray">{placeholder}</p>
+                    )
+                }
+
+                {
+                    (!file?.preview || !value) && !preview && (
+                        <p className="fs-6 fw-bold text-gray mb-2"> {placeholder} ( حداکثر ۱ مگابایت ) </p>
+                    )
+                }
+
+                {
+                    preview && (
+                        <button
+                            className="position-absolute top-0 start-0 btn btn-icon btn-rounded btn-warning m-3"
+                            onClick={open}
+                        >
+                            <i className="far fa-pen fs-5"/>
+                        </button>
                     )
                 }
 
@@ -108,6 +125,7 @@ FileInput.prototype = {
     name: PropTypes.string,
     value: PropTypes.object || undefined,
     setFieldValue: PropTypes.func,
+    preview: PropTypes.string,
     placeholder: PropTypes.string,
     acceptFiles: PropTypes.string,
     maxSize: PropTypes.number,

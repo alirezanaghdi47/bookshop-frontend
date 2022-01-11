@@ -39,7 +39,7 @@ const Book = () => {
         dispatch(readPublishedBook(params.id, navigate));
         dispatch(readRelativeBooks(params.id));
         // eslint-disable-next-line
-    }, [params]);
+    }, []);
 
     return (
         <>

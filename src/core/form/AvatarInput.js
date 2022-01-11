@@ -64,7 +64,8 @@ const AvatarInput = ({
             <div
                 {...getRootProps()}
                 className="position-relative d-flex justify-content-center align-items-center form-control form-control-lg border-dashed p-2 cursor-pointer"
-                style={{width: '10rem', height: '10rem'}}>
+                style={{width: '10rem', height: '10rem'}}
+            >
                 {
                     ((file?.preview && value) || preview) && (
                         <aside className="w-100 h-100 bg-light rounded">
@@ -84,7 +85,8 @@ const AvatarInput = ({
                     file?.preview && value && (
                         <button
                             className="position-absolute top-0 start-0 btn btn-icon btn-rounded btn-danger m-3"
-                            onClick={handleClear}>
+                            onClick={handleClear}
+                        >
                             <i className="far fa-trash-alt fs-5"/>
                         </button>
                     )
@@ -94,7 +96,8 @@ const AvatarInput = ({
                     preview && (
                         <button
                             className="position-absolute top-0 start-0 btn btn-icon btn-rounded btn-danger m-3"
-                            onClick={handleDelete}>
+                            onClick={handleDelete}
+                        >
                             <i className="far fa-trash-alt fs-5"/>
                         </button>
                     )

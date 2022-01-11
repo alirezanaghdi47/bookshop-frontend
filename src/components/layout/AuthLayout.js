@@ -22,37 +22,41 @@ const AuthLayout = ({children}) => {
     } , [location.pathname]);
 
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100 min-vh-100 p-3">
+        <>
 
-            {/* header */}
-            <header className="d-flex justify-content-between align-items-center w-100 p-3" style={{maxWidth: 450}}>
+            <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100 min-vh-100 p-3">
 
-                <Logo/>
+                {/* header */}
+                <header className="d-flex justify-content-between align-items-center w-100 p-3" style={{maxWidth: 450}}>
 
-                <Tooltip
-                    content={
-                        <div className="d-flex flex-column justify-content-center align-items-center">
-                            <h3 className="fs-5 fw-bold text-dark mb-2">اطلاعات مدیر سایت</h3>
-                            <p className="fs-6 fw-bold text-gray mb-1">ایمیل ( alirezanaghdi47@gmail.com
-                                )</p>
-                            <p className="fs-6 fw-bold text-gray">رمز عبور ( 1234567890 )</p>
-                        </div>
-                    }
-                    placement="top"
-                >
-                    <button className="btn btn-icon btn-sm btn-rounded btn-link link-gray">
-                        راهنما
-                    </button>
-                </Tooltip>
+                    <Logo/>
 
-            </header>
+                    <Tooltip
+                        content={
+                            <div className="d-flex flex-column justify-content-center align-items-center">
+                                <h3 className="fs-5 fw-bold text-dark mb-2">اطلاعات مدیر سایت</h3>
+                                <p className="fs-6 fw-bold text-gray mb-1">ایمیل ( alirezanaghdi47@gmail.com
+                                    )</p>
+                                <p className="fs-6 fw-bold text-gray">رمز عبور ( 1234567890 )</p>
+                            </div>
+                        }
+                        placement="top"
+                    >
+                        <button className="btn btn-icon btn-sm btn-rounded btn-link link-gray">
+                            راهنما
+                        </button>
+                    </Tooltip>
 
-            {/* main */}
-            <main className="card w-100 p-3" style={{maxWidth: 450}}>
-                {children}
-            </main>
+                </header>
 
-        </div>
+                {/* main */}
+                <main className="card w-100 p-3" style={{maxWidth: 450}}>
+                    {children}
+                </main>
+
+            </div>
+
+        </>
     );
 };
 

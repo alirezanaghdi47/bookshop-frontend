@@ -7,3 +7,11 @@ export const showLoading = () => {
 export const hideLoading = () => {
     return {type: t.HIDE_LOADING};
 };
+
+export const showAlert = () => {
+    return {type: t.SHOW_ALERT};
+};
+
+export const hideAlert = () => {
+    return {type: t.HIDE_ALERT};
+};
