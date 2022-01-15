@@ -12,12 +12,14 @@
   background: transparentize(#212121, 0.2) !important;
 }
 
-.ReactModal__Content {
+.ReactModal__Loading {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
   inset: unset !important;
+  width: 100% !important;
   min-width: 300px !important;
+  height: 100% !important;
   min-height: 150px !important;
   border: none !important;
   border-radius: 0.5rem !important;

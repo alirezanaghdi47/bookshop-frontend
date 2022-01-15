@@ -13,7 +13,7 @@ import BookList from '../../components/ui/BookList';
 import Searchbar from '../../components/ui/Searchbar';
 import Pagination from '../../core/Pagination';
 import EmptyPlaceholder from '../../core/EmptyPlaceholder';
-import SliderPlaceholder from '../../components/ui/placeholder/BooksPlaceholder';
+import BooksPlaceholder from '../../components/ui/placeholder/BooksPlaceholder';
 import PaginationPlaceholder from '../../components/ui/placeholder/PaginationPlaceholder';
 
 
@@ -53,7 +53,7 @@ const Home = () => {
                         {
                             publishedBooksIsLoading && (
                                 <>
-                                    <SliderPlaceholder count={12} xs={24} sm={12} md={8} lg={8} xl={6}/>
+                                    <BooksPlaceholder count={12} xs={24} sm={12} md={8} lg={8} xl={6}/>
                                     <PaginationPlaceholder/>
                                 </>
                             )

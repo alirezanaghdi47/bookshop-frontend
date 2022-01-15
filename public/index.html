@@ -17,10 +17,105 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="application-name" content="فروشگاه کتاب"/>
     <meta name="apple-mobile-web-app-title" content="فروشگاه کتاب"/>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" as="style"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css"/>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Farsi-Digits/font-face-FD.min.css" as="style"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Farsi-Digits/font-face-FD.min.css"/>
+    <link
+            rel="preconnect"
+            href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css"
+            as="style"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css"
+    />
+    <link
+            rel="preconnect"
+            href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Farsi-Digits/font-face-FD.min.css"
+            as="style"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Farsi-Digits/font-face-FD.min.css"
+    />
+    <style>
+        /*========== animation ==========*/
+
+        .loader-wrapper{
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background: #ffffff;
+        }
+
+        .loader {
+            display: inline-block;
+            position: relative;
+            width: 75px;
+            height: 50px;
+        }
+
+        .loader div {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-40%);
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #4d1dfe;
+            animation-timing-function: cubic-bezier(0, 1, 1, 0);
+        }
+
+        .loader div:nth-child(1) {
+            left: 8px;
+            animation: circle1 0.6s infinite;
+        }
+
+        .loader div:nth-child(2) {
+            left: 8px;
+            animation: circle2 0.6s infinite;
+        }
+
+        .loader div:nth-child(3) {
+            left: 32px;
+            animation: circle2 0.6s infinite;
+        }
+
+        .loader div:nth-child(4) {
+            left: 56px;
+            animation: circle3 0.6s infinite;
+        }
+
+        @keyframes circle1 {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes circle3 {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        @keyframes circle2 {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(24px, 0);
+            }
+        }
+
+    </style>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <title>فروشگاه کتاب</title>
 </head>
@@ -29,11 +124,20 @@
 
 <noscript>You need to enable JavaScript to run this app.</noscript>
 
-<div id="root"></div>
+<div id="root">
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
 <div id="portal"></div>
 
-<!-- service worker -->
 <script>
+    <!-- service worker -->
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('./sw.js', {scope: "/"}).then(registration => {

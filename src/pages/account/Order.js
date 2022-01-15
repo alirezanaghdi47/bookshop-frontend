@@ -13,6 +13,7 @@ import AccountLayout from '../../components/layout/AccountLayout';
 import Bill from '../../components/ui/Bill';
 import Catcher from "../../components/ui/Catcher";
 import OrderList from '../../components/ui/OrderList';
+import BooksPlaceholder from '../../components/ui/placeholder/BooksPlaceholder';
 import Placeholder from '../../core/Placeholder';
 
 
@@ -88,12 +89,7 @@ const Order = () => {
                         {/* order list + order list placeholder */}
                         {
                             cartIsLoading ? (
-                                <Placeholder
-                                    backgroundColor="#e0e0e0"
-                                    animationColor="#eeeeee"
-                                    borderRadius="0.5rem"
-                                    height={320}
-                                />
+                                <BooksPlaceholder count={2} xs={24} sm={12} md={12} lg={8} xl={8}/>
                             ) : (
                                 <OrderList cart={cart}/>
                             )

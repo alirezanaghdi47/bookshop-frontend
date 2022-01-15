@@ -14,7 +14,7 @@ const Logo = () => {
     return (
         <Link
             to="/"
-            className={`text-inline fs-5 fw-bold ${ location.pathname === '/' ? 'text-primary' : 'text-dark'} text-decoration-none`}
+            className={`text-inline text-decoration-none`}
         >
 
             <Image
@@ -22,11 +22,13 @@ const Logo = () => {
                 alt="فروشگاه کتاب"
                 width={30}
                 height={30}
-                className="img-fluid bg-light rounded object-center object-cover ms-3"
+                className="img-fluid bg-light rounded object-center object-cover me-3"
                 placeholderSrc={process.env.PUBLIC_URL + '/images/placeholder.png'}
             />
 
-            فروشگاه کتاب
+            <span className={`fs-5 fw-bold ${location.pathname === '/' ? 'text-primary' : 'text-dark'} me-3`}>
+                فروشگاه کتاب
+            </span>
 
         </Link>
     );

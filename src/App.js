@@ -1,5 +1,5 @@
 import {lazy, Suspense} from "react";
-import {Route, Routes , useLocation} from 'react-router-dom';
+import {Route, Routes, useLocation} from 'react-router-dom';
 import ScrollTop from './components/helper/ScrollTop';
 import PrivateRoute from './components/helper/PrivateRoute';
 import AuthVerify from './components/helper/AuthVerify';
@@ -9,8 +9,8 @@ import {AnimatePresence} from "framer-motion";
 //===== component =====//
 //=====================//
 
-import Loading from './core/Loading';
-import Notification from './core/Notification';
+const Loading = lazy(() => import('./core/Loading'));
+const Notification = lazy(() => import('./core/Notification'));
 
 //================//
 //===== page =====//
@@ -40,27 +40,27 @@ const App = () => {
     const location = useLocation();
 
     const routes = [
-        {path: "/" , element: <Home/> , requireAdmin: false , requireAuth: false},
-        {path: "/books/:id" , element: <Book/> , requireAdmin: false , requireAuth: false},
-        {path: "/cart" , element: <Cart/> , requireAdmin: false , requireAuth: true},
-        {path: "/login" , element: <Login/> , requireAdmin: false , requireAuth: false},
-        {path: "/register" , element: <Register/> , requireAdmin: false , requireAuth: false},
-        {path: "/account/dashboard" , element: <Dashboard/> , requireAdmin: false , requireAuth: true},
-        {path: "/account/books" , element: <Books/> , requireAdmin: true , requireAuth: true},
-        {path: "/account/books/add" , element: <AddBook/> , requireAdmin: true , requireAuth: true},
-        {path: "/account/books/:id/edit" , element: <EditBook/> , requireAdmin: true , requireAuth: true},
-        {path: "/account/categories" , element: <Categories/> , requireAdmin: true , requireAuth: true},
-        {path: "/account/categories/add" , element: <AddCategory/> , requireAdmin: true , requireAuth: true},
-        {path: "/account/categories/:id/edit" , element: <EditCategory/> , requireAdmin: true , requireAuth: true},
-        {path: "/account/orders" , element: <Orders/> , requireAdmin: false , requireAuth: true},
-        {path: "/account/orders/:id" , element: <Order/> , requireAdmin: false , requireAuth: true},
-        {path: "/account/users" , element: <Users/> , requireAdmin: true , requireAuth: true},
-        {path: "/account/profile" , element: <Profile/> , requireAdmin: false , requireAuth: true},
-        {path: "*" , element: <NotFound/> , requireAdmin: false , requireAuth: false},
+        {path: "/", element: <Home/>, requireAdmin: false, requireAuth: false},
+        {path: "/books/:id", element: <Book/>, requireAdmin: false, requireAuth: false},
+        {path: "/cart", element: <Cart/>, requireAdmin: false, requireAuth: true},
+        {path: "/login", element: <Login/>, requireAdmin: false, requireAuth: false},
+        {path: "/register", element: <Register/>, requireAdmin: false, requireAuth: false},
+        {path: "/account/dashboard", element: <Dashboard/>, requireAdmin: false, requireAuth: true},
+        {path: "/account/books", element: <Books/>, requireAdmin: true, requireAuth: true},
+        {path: "/account/books/add", element: <AddBook/>, requireAdmin: true, requireAuth: true},
+        {path: "/account/books/:id/edit", element: <EditBook/>, requireAdmin: true, requireAuth: true},
+        {path: "/account/categories", element: <Categories/>, requireAdmin: true, requireAuth: true},
+        {path: "/account/categories/add", element: <AddCategory/>, requireAdmin: true, requireAuth: true},
+        {path: "/account/categories/:id/edit", element: <EditCategory/>, requireAdmin: true, requireAuth: true},
+        {path: "/account/orders", element: <Orders/>, requireAdmin: false, requireAuth: true},
+        {path: "/account/orders/:id", element: <Order/>, requireAdmin: false, requireAuth: true},
+        {path: "/account/users", element: <Users/>, requireAdmin: true, requireAuth: true},
+        {path: "/account/profile", element: <Profile/>, requireAdmin: false, requireAuth: true},
+        {path: "*", element: <NotFound/>, requireAdmin: false, requireAuth: false},
     ];
 
     return (
-        <>
+        <Suspense fallback={false}>
 
             {/* routes */}
             <AnimatePresence
@@ -107,7 +107,7 @@ const App = () => {
             {/* auth verify */}
             <AuthVerify/>
 
-        </>
+        </Suspense>
     );
 };
 

@@ -13,7 +13,7 @@ import Recipient from '../../components/ui/Recipient';
 import ShoppingList from '../../components/ui/ShoppingList';
 import Price from '../../components/ui/Price';
 import EmptyPlaceholder from '../../core/EmptyPlaceholder';
-import SliderPlaceholder from '../../components/ui/placeholder/BooksPlaceholder';
+import BooksPlaceholder from '../../components/ui/placeholder/BooksPlaceholder';
 import Placeholder from "../../core/Placeholder";
 
 
@@ -59,7 +59,7 @@ const Cart = () => {
 
                                 {
                                     cartIsLoading ? (
-                                        <SliderPlaceholder count={3} xs={24} sm={12} md={12} lg={8} xl={8}/>
+                                        <BooksPlaceholder count={3} xs={24} sm={12} md={12} lg={8} xl={8}/>
                                     ) : (
                                         <ShoppingList orders={cart?.orders}/>
                                     )
