@@ -20,9 +20,9 @@ const Logo = () => {
             <Image
                 src={process.env.PUBLIC_URL + '/images/logo192.png'}
                 alt="فروشگاه کتاب"
+                width={30}
                 height={30}
                 className="img-fluid bg-light rounded object-center object-cover ms-3"
-                style={{maxWidth: 30}}
                 placeholderSrc={process.env.PUBLIC_URL + '/images/placeholder.png'}
             />
 

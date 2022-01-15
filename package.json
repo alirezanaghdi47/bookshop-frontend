@@ -1,7 +1,8 @@
 {
   "name": "bookshop-frontend",
-  "version": "3.0.0",
-  "private": true,
+  "version": "3.0.1",
+  "description": "the university graduation project",
+  "author": "alireza naghdi",
   "dependencies": {
     "@szhsin/react-menu": "^2.3.0",
     "@tippyjs/react": "^4.2.6",

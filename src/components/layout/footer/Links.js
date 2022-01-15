@@ -1,5 +1,3 @@
-import {Link} from "react-router-dom";
-
 
 const Links = () => {
 
@@ -13,15 +11,6 @@ const Links = () => {
                 >
                     درباره ما
                 </a>
-            </li>
-
-            <li className="list-group-item p-0">
-                <Link
-                    to="/coming-soon"
-                    className="btn btn-sm btn-link link-gray"
-                >
-                    تماس با ما
-                </Link>
             </li>
 
         </ul>

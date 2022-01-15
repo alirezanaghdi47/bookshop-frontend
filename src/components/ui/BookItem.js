@@ -18,7 +18,8 @@ const BookItem = ({book}) => {
 
                 <Link
                     to={`/books/${book?._id}`}
-                    className="d-flex justify-content-center align-items-center p-3">
+                    className="d-flex justify-content-center align-items-center p-3"
+                >
                     <Image
                         src={book?.imageUrl}
                         alt={book?.name}

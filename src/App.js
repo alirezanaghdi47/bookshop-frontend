@@ -33,7 +33,6 @@ const Orders = lazy(() => import('./pages/account/Orders'));
 const Order = lazy(() => import('./pages/account/Order'));
 const Profile = lazy(() => import('./pages/account/Profile'));
 const NotFound = lazy(() => import('./pages/NotFound'));
-const ComingSoon = lazy(() => import('./pages/ComingSoon'));
 
 
 const App = () => {
@@ -57,7 +56,6 @@ const App = () => {
         {path: "/account/orders/:id" , element: <Order/> , requireAdmin: false , requireAuth: true},
         {path: "/account/users" , element: <Users/> , requireAdmin: true , requireAuth: true},
         {path: "/account/profile" , element: <Profile/> , requireAdmin: false , requireAuth: true},
-        {path: "/coming-soon" , element: <ComingSoon/> , requireAdmin: false , requireAuth: false},
         {path: "*" , element: <NotFound/> , requireAdmin: false , requireAuth: false},
     ];
 

@@ -11,7 +11,7 @@ import {store, persistor} from './stores/store';
 //===== style =====//
 //=================//
 
-import './styles/_global.scss'; // global
+import './styles/_global.scss';
 
 
 ReactDOM.render(

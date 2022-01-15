@@ -1,6 +1,6 @@
 const cache_names = {
-    static: 'bookshop-static-v3',
-    dynamic: 'bookshop-dynamic-v3',
+    static: 'bookshop-static-v3.1',
+    dynamic: 'bookshop-dynamic-v3.1',
 };
 
 const cache_urls = [
@@ -13,7 +13,6 @@ const cache_urls = [
     './images/logo512.png',
     './images/maskable192.png',
     './images/placeholder.png',
-    './images/coming-soon.svg',
     './images/empty-cart.svg',
     './images/no-data.svg',
     './images/not-found.svg',
@@ -38,7 +37,7 @@ self.addEventListener('install', (e) => {
 // fetch
 self.addEventListener('fetch', (e) => {
 
-    // stale while revalidate ( get static files )
+    // stale while revalidate first ( get static files )
     if (
         e.request.method === 'GET' &&
         (
