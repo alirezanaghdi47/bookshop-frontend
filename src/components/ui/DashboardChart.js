@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import {formatPrice} from '../../utils/functions';
-
-//====================//
-//===== variable =====//
-//====================//
-
-const {REACT_APP_ADMIN_ACL} = process.env;
+import {admin_acl} from "../../utils/variables";
 
 
 const DashboardChart = ({dashboard}) => {
@@ -19,12 +14,12 @@ const DashboardChart = ({dashboard}) => {
             <div className="row gx-3 gy-5 w-100">
 
                 <div
-                    className={`${acl === REACT_APP_ADMIN_ACL ? 'col-24 col-sm-6' : 'col-12'} d-flex flex-column justify-content-center align-items-center`}>
+                    className={`${acl === admin_acl ? 'col-24 col-sm-6' : 'col-12'} d-flex flex-column justify-content-center align-items-center`}>
 
                     <i className="fal fa-dollar-sign fs-1 text-gray mb-2"/>
 
                     <span className="fs-5 fw-bold text-gray mb-2">
-                        {acl === REACT_APP_ADMIN_ACL ? 'فروش' : 'خرید'}
+                        {acl === admin_acl ? 'فروش' : 'خرید'}
                     </span>
 
                     <div className="d-flex justify-content-center align-items-center">
@@ -38,7 +33,7 @@ const DashboardChart = ({dashboard}) => {
                 </div>
 
                 {
-                    acl === REACT_APP_ADMIN_ACL && (
+                    acl === admin_acl && (
                         <div className="col-24 col-sm-6 d-flex flex-column justify-content-center align-items-center">
                             <i className="fal fa-book fs-1 text-gray mb-2"/>
                             <span className="fs-5 fw-bold text-gray mb-2"> کتاب</span>
@@ -48,7 +43,7 @@ const DashboardChart = ({dashboard}) => {
                 }
 
                 {
-                    acl === REACT_APP_ADMIN_ACL && (
+                    acl === admin_acl && (
                         <div className="col-24 col-sm-6 d-flex flex-column justify-content-center align-items-center">
                             <i className="fal fa-user-circle fs-1 text-gray mb-2"/>
                             <span className="fs-5 fw-bold text-gray mb-2"> کاربر</span>
@@ -57,7 +52,7 @@ const DashboardChart = ({dashboard}) => {
                     )
                 }
 
-                <div className={`${acl === REACT_APP_ADMIN_ACL ? 'col-24 col-sm-6' : 'col-12'} d-flex flex-column justify-content-center align-items-center`}>
+                <div className={`${acl === admin_acl ? 'col-24 col-sm-6' : 'col-12'} d-flex flex-column justify-content-center align-items-center`}>
                     <i className="fal fa-shopping-bag fs-1 text-gray mb-2"/>
                     <span className="fs-5 fw-bold text-gray mb-2"> سفارش</span>
                     <span className="fs-3 fw-bold text-dark">{dashboard?.cartsCount}</span>

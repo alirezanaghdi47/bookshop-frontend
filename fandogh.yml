@@ -1,0 +1,17 @@
+kind: ExternalService
+name: bookshop-frontend
+spec:
+  allow_http: true
+  domains:
+    - name: bookshop-alirezanaghdi.ir
+    - name: www.bookshop-alirezanaghdi.ir
+  image: 'bookshop-frontend:latest'
+  image_pull_policy: Always
+  path: /
+  port: 80
+  replicas: 1
+  resources:
+    memory: 200Mi
+  source:
+    context: .
+    project_type: react

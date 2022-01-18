@@ -9,7 +9,6 @@ import {useEffect} from "react";
 import Header from './header/Header';
 import Footer from './footer/Footer';
 import Sidebar from './sidebar/Sidebar';
-import Alert from "../../core/Alert";
 
 
 const AccountLayout = ({children}) => {
@@ -26,11 +25,6 @@ const AccountLayout = ({children}) => {
     return (
 
         <>
-
-            {/* alert */}
-            <Alert>
-                برای کارکرد درست وب سایت از vpn استفاده نمایید
-            </Alert>
 
             {/* header */}
             <header

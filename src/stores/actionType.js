@@ -4,6 +4,10 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const EXPIRE = 'EXPIRE';
 export const UPDATE_USER = 'UPDATE_USER';
+export const FORGET_PASSWORD = 'FORGET_PASSWORD';
+export const RESEND_KEY = 'RESEND_KEY';
+export const VERIFY_KEY = 'VERIFY_KEY';
+export const CONFIRM_PASSWORD = 'CONFIRM_PASSWORD';
 export const DELETE_USER_AVATAR = 'DELETE_USER_AVATAR';
 
 // book
@@ -41,5 +45,5 @@ export const SET_CHART = 'SET_CHART';
 // other
 export const SHOW_LOADING = 'SHOW_LOADING';
 export const HIDE_LOADING = 'HIDE_LOADING';
-export const SHOW_ALERT = 'SHOW_ALERT';
-export const HIDE_ALERT = 'HIDE_ALERT';
+export const STARTING_TIMER = 'STARTING_TIMER';
+export const STOPPING_TIMER = 'STOPPING_TIMER';

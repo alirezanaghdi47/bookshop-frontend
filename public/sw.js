@@ -1,6 +1,6 @@
 const cache_names = {
-    static: 'bookshop-static-v3.1',
-    dynamic: 'bookshop-dynamic-v3.1',
+    static: 'bookshop-static-v3.2',
+    dynamic: 'bookshop-dynamic-v3.2',
 };
 
 const cache_urls = [

@@ -3,6 +3,7 @@ import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {useSelector , useDispatch} from 'react-redux';
 import {logout} from "../../../stores/action/userAction";
 import {useMediaQuery} from 'react-responsive';
+import {admin_acl , user_acl} from "../../../utils/variables";
 
 //=====================//
 //===== component =====//
@@ -11,11 +12,6 @@ import {useMediaQuery} from 'react-responsive';
 import CollapseAnimation from '../../../core/animation/CollapseAnimation';
 import Image from "../../../core/Image";
 
-//====================//
-//===== variable =====//
-//====================//
-
-const {REACT_APP_ADMIN_ACL, REACT_APP_USER_ACL} = process.env;
 
 const adminRoutes = [
     {
@@ -120,7 +116,7 @@ const Sidebar = () => {
                         <p className="fs-5 fw-bold text-dark mb-1">{name}</p>
 
                         <span className="badge bg-primary fs-6 fw-bold text-white">
-                          {acl === REACT_APP_ADMIN_ACL ? 'مدیر' : 'کاربر'}
+                          {acl === admin_acl ? 'مدیر' : 'کاربر'}
                         </span>
 
                     </div>
@@ -145,7 +141,7 @@ const Sidebar = () => {
                 <ul className="list-group w-100">
 
                     {
-                        acl === REACT_APP_ADMIN_ACL && adminRoutes.map((route) => (
+                        acl === admin_acl && adminRoutes.map((route) => (
                                 <li className="list-group-item" key={route.id}>
                                     <Link
                                         to={route.href}
@@ -162,7 +158,7 @@ const Sidebar = () => {
                     }
 
                     {
-                        acl === REACT_APP_USER_ACL && userRoutes.map((route) => (
+                        acl === user_acl && userRoutes.map((route) => (
                                 <li className="list-group-item" key={route.id}>
                                     <Link
                                         to={route.href}

@@ -2,16 +2,18 @@ import * as t from './../actionType';
 import axios from 'axios';
 import {showLoading, hideLoading} from './otherAction';
 import {toast} from 'react-toastify';
+import {delay} from "../../utils/functions";
+import {endpoint} from "../../utils/variables";
 
-const {REACT_APP_ENDPOINT} = process.env;
 
 // read published books
 export const readPublishedBooks = (query) => async (dispatch) => {
 
     await dispatch({type: t.GET_PUBLISHED_BOOKS});
+    await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/book/published-books?${query}`)
+        .get(`${endpoint}/book/published-books?${query}`)
         .then(async (res) => {
             await dispatch({type: t.SET_PUBLISHED_BOOKS, payload: res.data});
         })
@@ -24,9 +26,10 @@ export const readPublishedBooks = (query) => async (dispatch) => {
 export const readPublishedBook = (id, navigate) => async (dispatch) => {
 
     await dispatch({type: t.GET_BOOK});
+    await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/book/published-books/${id}`)
+        .get(`${endpoint}/book/published-books/${id}`)
         .then(async (res) => {
             if (!res.data) await navigate('/404');
             await dispatch({type: t.SET_BOOK, payload: res.data});
@@ -40,9 +43,10 @@ export const readPublishedBook = (id, navigate) => async (dispatch) => {
 export const readRelativeBooks = (id) => async (dispatch) => {
 
     await dispatch({type: t.GET_RELATIVE_BOOKS});
+    await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/book/relative-books/${id}`)
+        .get(`${endpoint}/book/relative-books/${id}`)
         .then(async (res) => {
             await dispatch({type: t.SET_RELATIVE_BOOKS, payload: res.data});
         })
@@ -57,9 +61,10 @@ export const readBooks = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_BOOKS});
+    await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/book/books?${query}`, {
+        .get(`${endpoint}/book/books?${query}`, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {
@@ -74,9 +79,10 @@ export const readBooks = (query) => async (dispatch, getState) => {
 export const readBook = (id) => async (dispatch) => {
 
     await dispatch({type: t.GET_BOOK});
+    await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/book/books/${id}`)
+        .get(`${endpoint}/book/books/${id}`)
         .then(async (res) => {
             await dispatch({type: t.SET_BOOK, payload: res.data});
         })
@@ -91,9 +97,10 @@ export const createBook = (payload, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
-        .post(`${REACT_APP_ENDPOINT}/book/add-book`, payload, {
+        .post(`${endpoint}/book/add-book`, payload, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {
@@ -113,9 +120,10 @@ export const updateBook = (id, payload, navigate) => async (dispatch, getState) 
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
-        .put(`${REACT_APP_ENDPOINT}/book/edit-book/${id}`, payload, {
+        .put(`${endpoint}/book/edit-book/${id}`, payload, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {
@@ -135,9 +143,10 @@ export const deleteBook = (id, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
-        .delete(`${REACT_APP_ENDPOINT}/book/delete-book/${id}`, {
+        .delete(`${endpoint}/book/delete-book/${id}`, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {

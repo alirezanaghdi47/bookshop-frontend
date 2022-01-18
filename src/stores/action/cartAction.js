@@ -2,8 +2,9 @@ import * as t from '../actionType';
 import axios from 'axios';
 import {hideLoading, showLoading} from './otherAction';
 import {toast} from 'react-toastify';
+import {delay} from "../../utils/functions";
+import {endpoint} from "../../utils/variables";
 
-const {REACT_APP_ENDPOINT} = process.env;
 
 // read carts
 export const readCarts = (query) => async (dispatch, getState) => {
@@ -11,9 +12,10 @@ export const readCarts = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CARTS});
+    await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/cart/carts?${query}`, {
+        .get(`${endpoint}/cart/carts?${query}`, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {
@@ -30,9 +32,10 @@ export const readCart = (id, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CART});
+    await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/cart/carts/${id}`, {
+        .get(`${endpoint}/cart/carts/${id}`, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {
@@ -50,9 +53,10 @@ export const readOpenCart = () => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_OPEN_CART});
+    await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/cart/open-cart`, {
+        .get(`${endpoint}/cart/open-cart`, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {
@@ -69,6 +73,7 @@ export const updateCart = (cart, navigate) => async (dispatch, getState) => {
     const {token, address, postalCode} = getState().user.profile;
 
     await dispatch(showLoading());
+    await delay(500);
 
     if (!address && !postalCode) {
         await dispatch(hideLoading());
@@ -78,7 +83,7 @@ export const updateCart = (cart, navigate) => async (dispatch, getState) => {
 
     await axios
         .patch(
-            `${REACT_APP_ENDPOINT}/cart/edit-cart/${cart._id}`,
+            `${endpoint}/cart/edit-cart/${cart._id}`,
             {},
             {headers: {'x-auth-token': token}}
         )

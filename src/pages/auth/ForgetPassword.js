@@ -1,8 +1,8 @@
 import {Link, useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
-import {register} from '../../stores/action/userAction';
+import {forgetPassword} from '../../stores/action/userAction';
 import {useFormik} from 'formik';
-import {registerSchema} from '../../utils/validations';
+import {forgetPasswordSchema} from '../../utils/validations';
 import {Helmet} from 'react-helmet';
 
 //=====================//
@@ -12,31 +12,28 @@ import {Helmet} from 'react-helmet';
 import PageAnimation from "../../core/animation/PageAnimation";
 import AuthLayout from '../../components/layout/AuthLayout';
 import TextInput from '../../core/form/TextInput';
-import PasswordInput from '../../core/form/PasswordInput';
 
 
-const Register = () => {
+const ForgetPassword = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
-            name: '',
-            email: '',
-            password: ''
+            email: ''
         },
         onSubmit: (values) => {
-            dispatch(register(values, navigate));
+            dispatch(forgetPassword(values, navigate));
         },
-        validationSchema: registerSchema
+        validationSchema: forgetPasswordSchema
     });
 
     return (
         <>
 
             <Helmet>
-                <title>عضویت</title>
-                <meta name="description" content="صفحه عضویت کاربر جدید"/>
+                <title>فراموشی رمز</title>
+                <meta name="description" content="صفحه فراموشی رمز عبور"/>
             </Helmet>
 
             <PageAnimation>
@@ -47,23 +44,13 @@ const Register = () => {
 
                         <div className="d-flex justify-content-between align-items-center w-100">
 
-                            <h2 className="fs-2 fw-bold text-primary">عضویت</h2>
+                            <h2 className="fs-2 fw-bold text-primary">فراموشی رمز</h2>
 
                             <Link to="/login" className="btn btn-sm btn-link link-danger text-decoration-none">
                                 بازگشت
                                 <i className="far fa-arrow-left fs-5 me-3"/>
                             </Link>
 
-                        </div>
-
-                        <div className="d-flex flex-column justify-content-center align-items-start w-100">
-                            <TextInput
-                                label="نام و نام خانوادگی ( فارسی )"
-                                name="name"
-                                value={formik.values?.name}
-                                onChange={formik.handleChange}
-                                error={formik.errors?.name}
-                            />
                         </div>
 
                         <div className="d-flex flex-column justify-content-center align-items-start w-100">
@@ -76,16 +63,6 @@ const Register = () => {
                             />
                         </div>
 
-                        <div className="d-flex flex-column justify-content-center align-items-start w-100">
-                            <PasswordInput
-                                label="رمز عبور"
-                                name="password"
-                                value={formik.values?.password}
-                                onChange={formik.handleChange}
-                                error={formik.errors?.password}
-                            />
-                        </div>
-
                         <div className="d-flex justify-content-center align-items-center w-100">
                             <button
                                 className="btn btn-lg btn-primary w-100"
@@ -93,7 +70,7 @@ const Register = () => {
                                 onClick={formik.handleSubmit}
                             >
                                 <i className="fas fa-arrow-right fs-5 ms-3"/>
-                                عضویت
+                                بعدی
                             </button>
                         </div>
 
@@ -101,8 +78,8 @@ const Register = () => {
                             <Link to="/login" className="btn btn-link btn-sm link-gray">
                                 ورود
                             </Link>
-                            <Link to="/forget-password" className="btn btn-link btn-sm link-gray">
-                                فراموشی رمز
+                            <Link to="/register" className="btn btn-link btn-sm link-gray">
+                                عضویت
                             </Link>
                         </div>
 
@@ -116,4 +93,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default ForgetPassword;

@@ -2,8 +2,9 @@ import * as t from '../actionType';
 import axios from 'axios';
 import {showLoading, hideLoading} from './otherAction';
 import {toast} from 'react-toastify';
+import {delay} from "../../utils/functions";
+import {endpoint} from "../../utils/variables";
 
-const {REACT_APP_ENDPOINT} = process.env;
 
 // read categories
 export const readCategories = (query) => async (dispatch, getState) => {
@@ -11,9 +12,10 @@ export const readCategories = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CATEGORIES});
+    await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/category/categories?${query}`, {
+        .get(`${endpoint}/category/categories?${query}`, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {
@@ -30,9 +32,10 @@ export const readCategory = (id) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CATEGORY});
+    await delay(500);
 
     await axios
-        .get(`${REACT_APP_ENDPOINT}/category/categories/${id}`, {
+        .get(`${endpoint}/category/categories/${id}`, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {
@@ -49,9 +52,10 @@ export const createCategory = (payload, navigate) => async (dispatch, getState) 
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
-        .post(`${REACT_APP_ENDPOINT}/category/add-category`, payload, {
+        .post(`${endpoint}/category/add-category`, payload, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {
@@ -71,9 +75,10 @@ export const updateCategory = (id, payload, navigate) => async (dispatch, getSta
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
-        .put(`${REACT_APP_ENDPOINT}/category/edit-category/${id}`, payload, {
+        .put(`${endpoint}/category/edit-category/${id}`, payload, {
             headers: {'x-auth-token': token}
         })
         .then(async (res) => {
@@ -93,10 +98,11 @@ export const deleteCategory = (id, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
         .patch(
-            `${REACT_APP_ENDPOINT}/category/edit-category-status/${id}`,
+            `${endpoint}/category/edit-category-status/${id}`,
             {isRemoved: true},
             {headers: {'x-auth-token': token}}
         )

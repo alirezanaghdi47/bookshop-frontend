@@ -1,11 +1,6 @@
 import {Navigate, useLocation} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-
-//====================//
-//===== variable =====//
-//====================//
-
-const {REACT_APP_ADMIN_ACL} = process.env;
+import {admin_acl} from "../../utils/variables";
 
 
 const PrivateRoute = ({children , requiredAuth, requiredAdmin}) => {
@@ -17,7 +12,7 @@ const PrivateRoute = ({children , requiredAuth, requiredAdmin}) => {
         return <Navigate to="/login" state={{ from: location }} replace/>;
     }
 
-    if (requiredAdmin && !token && acl !== REACT_APP_ADMIN_ACL) {
+    if (requiredAdmin && !token && acl !== admin_acl) {
         return <Navigate to="/login" state={{ from: location }} replace/>;
     }
 

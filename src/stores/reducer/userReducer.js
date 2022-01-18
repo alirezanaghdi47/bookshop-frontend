@@ -1,6 +1,6 @@
 import * as t from './../actionType';
+import {user_acl} from "../../utils/variables";
 
-const {REACT_APP_USER_ACL} = process.env;
 
 const initialState = {
     chart: {
@@ -17,13 +17,15 @@ const initialState = {
         avatarUrl: '',
         name: '',
         email: '',
-        acl: REACT_APP_USER_ACL,
+        acl: user_acl,
         gender: '',
         melliCode: '',
         address: '',
         postalCode: '',
         token: '',
         expireToken: 0,
+        forgetKey: '',
+        expireForgetKey: 0
     }
 };
 
@@ -49,6 +51,25 @@ const userReducer = (state = initialState, action) => {
                     expireToken: action.payload.exp
                 }
             };
+        case t.FORGET_PASSWORD:
+        case t.RESEND_KEY:
+            return {
+                ...state,
+                profile: {
+                    ...state.profile,
+                    email: action.payload.email,
+                    expireForgetKey: action.payload.expireForgetKey
+                }
+            };
+        case t.VERIFY_KEY:
+            return {
+                ...state,
+                profile: {
+                    ...state.profile,
+                    forgetKey: action.payload
+                }
+            };
+        case t.CONFIRM_PASSWORD:
         case t.LOGOUT:
         case t.EXPIRE:
             return {

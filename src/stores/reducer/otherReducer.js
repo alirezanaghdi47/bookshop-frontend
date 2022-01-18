@@ -2,7 +2,7 @@ import * as t from './../actionType';
 
 const initialState = {
     showingLoading: false,
-    showingAlert: true,
+    startingTimer: false
 };
 
 const otherReducer = (state = initialState, action) => {
@@ -17,15 +17,15 @@ const otherReducer = (state = initialState, action) => {
                 ...state,
                 showingLoading: false
             };
-        case t.SHOW_ALERT:
+        case t.STARTING_TIMER:
             return {
                 ...state,
-                showingAlert: true
+                startingTimer: true
             };
-        case t.HIDE_ALERT:
+        case t.STOPPING_TIMER:
             return {
                 ...state,
-                showingAlert: false
+                startingTimer: false
             };
         default:
             return state;

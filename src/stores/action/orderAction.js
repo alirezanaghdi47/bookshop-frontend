@@ -1,8 +1,9 @@
 import axios from 'axios';
 import {hideLoading, showLoading} from './otherAction';
 import {toast} from 'react-toastify';
+import {delay} from "../../utils/functions";
+import {endpoint} from "../../utils/variables";
 
-const {REACT_APP_ENDPOINT} = process.env;
 
 // create order
 export const createOrder = (book) => async (dispatch, getState) => {
@@ -13,6 +14,7 @@ export const createOrder = (book) => async (dispatch, getState) => {
     const order = cart?.orders?.find((item) => item.book._id === book._id);
 
     await dispatch(showLoading());
+    await delay(500);
 
     if (order?.entity === 5) {
         await dispatch(hideLoading());
@@ -22,7 +24,7 @@ export const createOrder = (book) => async (dispatch, getState) => {
 
     await axios
         .post(
-            `${REACT_APP_ENDPOINT}/order/add-order`,
+            `${endpoint}/order/add-order`,
             {book: book},
             {headers: {'x-auth-token': token}}
         )
@@ -42,10 +44,11 @@ export const updateOrder = (order, book) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
         .put(
-            `${REACT_APP_ENDPOINT}/order/edit-order/${order._id}`,
+            `${endpoint}/order/edit-order/${order._id}`,
             {book: book},
             {headers: {'x-auth-token': token}}
         )
@@ -65,9 +68,10 @@ export const deleteOrder = (order, book) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
+    await delay(500);
 
     await axios
-        .delete(`${REACT_APP_ENDPOINT}/order/delete-order/${order._id}`, {
+        .delete(`${endpoint}/order/delete-order/${order._id}`, {
             data: {book: book},
             headers: {'x-auth-token': token}
         })

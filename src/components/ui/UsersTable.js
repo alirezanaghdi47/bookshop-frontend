@@ -1,10 +1,5 @@
 import PropTypes from 'prop-types';
-
-//====================//
-//===== variable =====//
-//====================//
-
-const {REACT_APP_ADMIN_ACL} = process.env;
+import {admin_acl} from "../../utils/variables";
 
 
 const UsersTable = ({users}) => {
@@ -36,8 +31,8 @@ const UsersTable = ({users}) => {
                                             <td className="fs-5 text-center text-truncate">{user?.name}</td>
                                             <td className="fs-5 text-center text-truncate">{user?.email}</td>
                                             <td className="fs-5 text-center text-truncate">
-                                            <span className={`badge w-max-content fs-6 fw-bold ${user?.acl === REACT_APP_ADMIN_ACL ? 'bg-success' : 'bg-danger'} text-white p-2 mx-auto`}>
-                                              {user.acl === REACT_APP_ADMIN_ACL ? 'مدیر' : 'کاربر'}
+                                            <span className={`badge w-max-content fs-6 fw-bold ${user?.acl === admin_acl ? 'bg-success' : 'bg-danger'} text-white p-2 mx-auto`}>
+                                              {user.acl === admin_acl ? 'مدیر' : 'کاربر'}
                                             </span>
                                             </td>
                                         </tr>

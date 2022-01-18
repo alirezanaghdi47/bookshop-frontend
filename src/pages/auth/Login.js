@@ -13,6 +13,7 @@ import PageAnimation from "../../core/animation/PageAnimation";
 import AuthLayout from '../../components/layout/AuthLayout';
 import TextInput from '../../core/form/TextInput';
 import PasswordInput from '../../core/form/PasswordInput';
+import Tooltip from "../../core/Tooltip";
 
 
 const Login = () => {
@@ -45,13 +46,22 @@ const Login = () => {
                     <div className="vstack gap-3">
 
                         <div className="d-flex justify-content-between align-items-center w-100">
-
                             <h2 className="fs-1 fw-bold text-primary">ورود</h2>
-
-                            <Link to="/register" className="btn btn-link btn-sm link-gray">
-                                عضویت
-                            </Link>
-
+                            <Tooltip
+                                content={
+                                    <div className="d-flex flex-column justify-content-center align-items-center">
+                                        <h3 className="fs-5 fw-bold text-dark mb-2">اطلاعات مدیر سایت</h3>
+                                        <p className="fs-6 fw-bold text-gray mb-1">ایمیل ( alirezanaghdi47@gmail.com )</p>
+                                        <p className="fs-6 fw-bold text-gray">رمز عبور ( 1234567890 )</p>
+                                    </div>
+                                }
+                                placement="top"
+                            >
+                                <button className="btn btn-link btn-sm btn-rounded link-danger">
+                                    راهنما
+                                    <i className="far fa-question-circle fs-5 me-2"/>
+                                </button>
+                            </Tooltip>
                         </div>
 
                         <div className="d-flex flex-column justify-content-center align-items-start w-100">
@@ -82,8 +92,18 @@ const Login = () => {
                                 type="submit"
                                 onClick={formik.handleSubmit}
                             >
+                                <i className="fas fa-arrow-right fs-5 ms-3"/>
                                 ورود
                             </button>
+                        </div>
+
+                        <div className="d-flex justify-content-between align-items-center w-100">
+                            <Link to="/register" className="btn btn-link btn-sm link-gray">
+                                عضویت
+                            </Link>
+                            <Link to="/forget-password" className="btn btn-link btn-sm link-gray">
+                                فراموشی رمز
+                            </Link>
                         </div>
 
                     </div>
