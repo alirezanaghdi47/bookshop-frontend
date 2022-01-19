@@ -4,11 +4,6 @@
 <head>
     <meta charset="utf-8"/>
     <link rel="icon" href="%PUBLIC_URL%/images/favicon.ico"/>
-    <link rel="icon" type="image/png" sizes="512x512" href="%PUBLIC_URL%/images/logo512.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="%PUBLIC_URL%/images/logo192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/images/favicon32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/images/favicon16.png">
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/images/apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#4D1DFE"/>
     <meta name="background-color" content="#4D1DFE"/>
@@ -19,14 +14,8 @@
     <meta name="apple-mobile-web-app-title" content="فروشگاه کتاب"/>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin/>
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css"
-    />
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Farsi-Digits/font-face-FD.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Farsi-Digits/font-face-FD.min.css"/>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <title>فروشگاه کتاب</title>
 </head>
@@ -37,19 +26,6 @@
 
 <div id="root"></div>
 <div id="portal"></div>
-
-<script>
-    <!-- service worker -->
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js', {scope: "/"}).then(registration => {
-                // console.log('SW registered: ', registration);
-            }).catch(registrationError => {
-                // console.log('SW registration failed: ', registrationError);
-            });
-        });
-    }
-</script>
 
 </body>
 
