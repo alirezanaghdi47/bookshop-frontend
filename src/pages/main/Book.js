@@ -3,20 +3,20 @@ import {useNavigate, useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {readRelativeBooks, readPublishedBook} from '../../stores/action/bookAction';
 import {useMediaQuery} from 'react-responsive';
-import {Helmet} from 'react-helmet';
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import MainLayout from '../../components/layout/MainLayout';
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import Seo from "../../components/modules/Seo";
+import MainLayout from '../../components/layouts/MainLayout';
 import Addressbar from '../../components/ui/Addressbar';
 import Summary from '../../components/ui/Summary';
 import Specification from '../../components/ui/Specification';
 import Information from '../../components/ui/Information';
-import Swiper from "../../core/Swiper";
-import Placeholder from '../../core/Placeholder';
+import Swiper from "../../components/modules/Swiper";
+import Placeholder from '../../components/modules/Placeholder';
 
 
 const Book = () => {
@@ -44,7 +44,7 @@ const Book = () => {
     return (
         <>
 
-            <Helmet>
+            <Seo>
                 <title>{book?.name}</title>
                 <meta property="og:site_name" content="book shop"/>
                 <meta property="og:title" content={book?.name}/>
@@ -56,7 +56,7 @@ const Book = () => {
                 <meta property="og:isbn" content={book?.shabak}/>
                 <meta property="og:author" content={book?.authors}/>
                 <meta property="og:publish_date" content={book?.year}/>
-            </Helmet>
+            </Seo>
 
             <PageAnimation>
 

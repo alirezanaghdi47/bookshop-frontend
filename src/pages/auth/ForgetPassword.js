@@ -3,15 +3,15 @@ import {useDispatch} from 'react-redux';
 import {forgetPassword} from '../../stores/action/userAction';
 import {useFormik} from 'formik';
 import {forgetPasswordSchema} from '../../utils/validations';
-import {Helmet} from 'react-helmet';
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import AuthLayout from '../../components/layout/AuthLayout';
-import TextInput from '../../core/form/TextInput';
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import Seo from "../../components/modules/Seo";
+import AuthLayout from '../../components/layouts/AuthLayout';
+import TextInput from '../../components/modules/form/TextInput';
 
 
 const ForgetPassword = () => {
@@ -31,10 +31,10 @@ const ForgetPassword = () => {
     return (
         <>
 
-            <Helmet>
+            <Seo>
                 <title>فراموشی رمز</title>
                 <meta name="description" content="صفحه فراموشی رمز عبور"/>
-            </Helmet>
+            </Seo>
 
             <PageAnimation>
 

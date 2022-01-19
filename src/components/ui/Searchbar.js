@@ -7,8 +7,8 @@ import {useFormik} from 'formik';
 //===== component =====//
 //=====================//
 
-import SearchInput from '../../core/form/SearchInput';
-import SortMenu from '../../core/SortMenu';
+import SearchInput from '../modules/form/SearchInput';
+import SortMenu from '../modules/SortMenu';
 
 
 const Searchbar = ({page}) => {

@@ -12,7 +12,7 @@ export const readCarts = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CARTS});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/cart/carts?${query}`, {
@@ -32,7 +32,7 @@ export const readCart = (id, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CART});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/cart/carts/${id}`, {
@@ -53,7 +53,7 @@ export const readOpenCart = () => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_OPEN_CART});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/cart/open-cart`, {
@@ -73,7 +73,7 @@ export const updateCart = (cart, navigate) => async (dispatch, getState) => {
     const {token, address, postalCode} = getState().user.profile;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     if (!address && !postalCode) {
         await dispatch(hideLoading());

@@ -1,4 +1,4 @@
-import {AnimatePresence, motion} from "framer-motion";
+import {AnimatePresence , motion} from "framer-motion";
 
 //====================//
 //===== variable =====//
@@ -19,7 +19,7 @@ const CollapseAnimation = ({children, show}) => {
                 initial="hide"
                 animate={show ? "show" : "hide"}
                 exit="hide"
-                transition={{duration: 0.3, ease: "easeInOut"}}
+                transition={{duration: 0.25, ease: "easeInOut"}}
                 variants={animationVariants}
             >
                 {children}

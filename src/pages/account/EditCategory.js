@@ -10,9 +10,9 @@ import {Helmet} from 'react-helmet';
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import AccountLayout from '../../components/layout/AccountLayout';
-import TextInput from '../../core/form/TextInput';
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import AccountLayout from '../../components/layouts/AccountLayout';
+import TextInput from '../../components/modules/form/TextInput';
 
 
 const EditCategory = () => {

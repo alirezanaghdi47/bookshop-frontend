@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import {useEffect, useState} from 'react';
-import {useDropzone} from 'react-dropzone';
+import {useDropzone} from "react-dropzone";
 
 //=================//
 //===== style =====//
 //=================//
 
-import '../../styles/core/react-dropzone.scss';
+import '../../../styles/module/react-dropzone.scss';
 
 
 const AvatarInput = ({
@@ -45,8 +45,8 @@ const AvatarInput = ({
 
     const handleDelete = async (e) => {
         e.stopPropagation();
-        await onRemove();
-        await handleClear(e);
+        await setFile({});
+        await setFieldValue(name, {});
     };
 
     useEffect(() => {

@@ -1,13 +1,13 @@
 import {Link} from "react-router-dom";
-import {Helmet} from 'react-helmet';
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../core/animation/PageAnimation";
-import OtherLayout from "../components/layout/OtherLayout";
-import EmptyPlaceholder from '../core/EmptyPlaceholder';
+import PageAnimation from "../components/modules/animation/PageAnimation";
+import Seo from "../components/modules/Seo";
+import OtherLayout from "../components/layouts/OtherLayout";
+import EmptyPlaceholder from '../components/modules/EmptyPlaceholder';
 
 
 const NotFound = () => {
@@ -15,10 +15,10 @@ const NotFound = () => {
     return (
         <>
 
-            <Helmet>
+            <Seo>
                 <title>صفحه مورد نظر یافت نشد</title>
                 <meta name="description" content="صفحه ۴۰۴"/>
-            </Helmet>
+            </Seo>
 
             <PageAnimation>
 
@@ -34,9 +34,10 @@ const NotFound = () => {
 
                     <Link
                         to="/"
-                        className="btn btn-sm btn-primary w-max-content mt-4 mx-auto"
+                        className="btn btn-primary w-max-content mt-4 mx-auto"
                     >
                         بازگشت به صفحه اصلی
+                        <i className="far fa-arrow-left fs-5 me-2"/>
                     </Link>
 
                 </OtherLayout>

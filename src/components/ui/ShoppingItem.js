@@ -9,7 +9,7 @@ import {discountPrice, formatPrice} from '../../utils/functions';
 //===== component =====//
 //=====================//
 
-import Image from '../../core/Image';
+import Image from '../modules/Image';
 
 
 const ShoppingItem = ({order}) => {

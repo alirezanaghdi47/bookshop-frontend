@@ -3,16 +3,16 @@ import {useDispatch, useSelector} from 'react-redux';
 import {resendKey, verifyKey} from '../../stores/action/userAction';
 import {useFormik} from 'formik';
 import {verifyKeySchema} from '../../utils/validations';
-import {Helmet} from 'react-helmet';
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import AuthLayout from '../../components/layout/AuthLayout';
-import NumberInput from '../../core/form/NumberInput';
-import Counterdown from '../../core/Counterdown';
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import Seo from "../../components/modules/Seo";
+import AuthLayout from '../../components/layouts/AuthLayout';
+import NumberInput from '../../components/modules/form/NumberInput';
+import Counterdown from '../../components/modules/Counterdown';
 
 
 const VerifyKey = () => {
@@ -34,10 +34,10 @@ const VerifyKey = () => {
     return (
         <>
 
-            <Helmet>
+            <Seo>
                 <title>احراز هویت</title>
                 <meta name="description" content="صفحه احراز هویت کاربر"/>
-            </Helmet>
+            </Seo>
 
             <PageAnimation>
 

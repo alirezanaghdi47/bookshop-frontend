@@ -1,16 +1,22 @@
-import {lazy, Suspense} from "react";
+import {lazy , Suspense} from "react";
 import {Route, Routes, useLocation} from 'react-router-dom';
-import ScrollTop from './components/helper/ScrollTop';
-import PrivateRoute from './components/helper/PrivateRoute';
-import AuthVerify from './components/helper/AuthVerify';
 import {AnimatePresence} from "framer-motion";
+import ScrollTop from './components/helpers/ScrollTop';
+import PrivateRoute from './components/helpers/PrivateRoute';
+import AuthVerify from './components/helpers/AuthVerify';
+
+//=================//
+//===== style =====//
+//=================//
+
+import "./styles/global.scss";
 
 //=====================//
 //===== component =====//
 //=====================//
 
-const Loading = lazy(() => import('./core/Loading'));
-const Notification = lazy(() => import('./core/Notification'));
+import Loading from "./components/modules/Loading";
+import Notification from "./components/modules/Notification";
 
 //================//
 //===== page =====//
@@ -48,9 +54,9 @@ const App = () => {
         {path: "/cart", element: <Cart/>, requireAdmin: false, requireAuth: true},
         {path: "/login", element: <Login/>, requireAdmin: false, requireAuth: false},
         {path: "/register", element: <Register/>, requireAdmin: false, requireAuth: false},
-        {path: "/forget-password" , element: <ForgetPassword/> , requireAdmin: false , requireAuth: false},
-        {path: "/verify-key" , element: <VerifyKey/> , requireAdmin: false , requireAuth: false},
-        {path: "/verify-password" , element: <VerifyPassword/> , requireAdmin: false , requireAuth: false},
+        {path: "/forget-password", element: <ForgetPassword/>, requireAdmin: false, requireAuth: false},
+        {path: "/verify-key", element: <VerifyKey/>, requireAdmin: false, requireAuth: false},
+        {path: "/verify-password", element: <VerifyPassword/>, requireAdmin: false, requireAuth: false},
         {path: "/account/dashboard", element: <Dashboard/>, requireAdmin: false, requireAuth: true},
         {path: "/account/books", element: <Books/>, requireAdmin: true, requireAuth: true},
         {path: "/account/books/add", element: <AddBook/>, requireAdmin: true, requireAuth: true},
@@ -66,7 +72,7 @@ const App = () => {
     ];
 
     return (
-        <Suspense fallback={false}>
+        <>
 
             {/* routes */}
             <AnimatePresence
@@ -113,7 +119,7 @@ const App = () => {
             {/* auth verify */}
             <AuthVerify/>
 
-        </Suspense>
+        </>
     );
 };
 

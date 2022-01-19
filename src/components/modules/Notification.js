@@ -1,12 +1,12 @@
-import {ToastContainer} from 'react-toastify';
 import {useMediaQuery} from 'react-responsive';
+import {ToastContainer} from "react-toastify";
 
 //=================//
 //===== style =====//
 //=================//
 
 import 'react-toastify/dist/ReactToastify.min.css';
-import '../styles/core/react-toastify.scss';
+import '../../styles/module/react-toastify.scss';
 
 
 const Notification = () => {

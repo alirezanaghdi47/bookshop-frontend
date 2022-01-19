@@ -3,17 +3,17 @@ import {useDispatch} from 'react-redux';
 import {login} from '../../stores/action/userAction';
 import {useFormik} from 'formik';
 import {loginSchema} from '../../utils/validations';
-import {Helmet} from 'react-helmet';
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import AuthLayout from '../../components/layout/AuthLayout';
-import TextInput from '../../core/form/TextInput';
-import PasswordInput from '../../core/form/PasswordInput';
-import Tooltip from "../../core/Tooltip";
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import Seo from "../../components/modules/Seo";
+import AuthLayout from '../../components/layouts/AuthLayout';
+import TextInput from '../../components/modules/form/TextInput';
+import PasswordInput from '../../components/modules/form/PasswordInput';
+import Tooltip from "../../components/modules/Tooltip";
 
 
 const Login = () => {
@@ -34,10 +34,10 @@ const Login = () => {
     return (
         <>
 
-            <Helmet>
+            <Seo>
                 <title>ورود</title>
                 <meta name="description" content="صفحه ورود کاربر"/>
-            </Helmet>
+            </Seo>
 
             <PageAnimation>
 
@@ -58,8 +58,8 @@ const Login = () => {
                                 placement="top"
                             >
                                 <button className="btn btn-link btn-sm btn-rounded link-danger">
+                                    <i className="far fa-question-circle fs-5 ms-2"/>
                                     راهنما
-                                    <i className="far fa-question-circle fs-5 me-2"/>
                                 </button>
                             </Tooltip>
                         </div>

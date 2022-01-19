@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
-import {stopTimer} from '../stores/action/otherAction';
-import Countdown from 'react-countdown';
+import {stopTimer} from '../../stores/action/otherAction';
+import Countdown from "react-countdown";
 
 
 const Counterdown = ({date}) => {

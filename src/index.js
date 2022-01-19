@@ -7,12 +7,6 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {store, persistor} from './stores/store';
 
-//=================//
-//===== style =====//
-//=================//
-
-import './styles/_global.scss';
-
 
 ReactDOM.render(
     <>

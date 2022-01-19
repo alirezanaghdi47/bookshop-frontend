@@ -6,7 +6,7 @@ import {useMediaQuery} from 'react-responsive';
 //===== component =====//
 //=====================//
 
-import Image from "../../../core/Image";
+import Image from "../../modules/Image";
 
 
 const Actionbar = () => {

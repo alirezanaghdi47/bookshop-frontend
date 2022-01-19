@@ -8,13 +8,13 @@ import {Helmet} from 'react-helmet';
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import AccountLayout from '../../components/layout/AccountLayout';
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import AccountLayout from '../../components/layouts/AccountLayout';
 import Bill from '../../components/ui/Bill';
 import Catcher from "../../components/ui/Catcher";
 import OrderList from '../../components/ui/OrderList';
 import BooksPlaceholder from '../../components/ui/placeholder/BooksPlaceholder';
-import Placeholder from '../../core/Placeholder';
+import Placeholder from '../../components/modules/Placeholder';
 
 
 const Order = () => {

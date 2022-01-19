@@ -13,7 +13,7 @@ export const readUsers = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_USERS});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/user/users?${query}`, {
@@ -33,7 +33,7 @@ export const readChart = () => async (dispatch, getState) => {
     const {token, acl} = getState().user.profile;
 
     await dispatch({type: t.GET_CHART});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(acl === admin_acl ? `${endpoint}/admin-chart` : `${endpoint}/chart`, {headers: {'x-auth-token': token}})
@@ -49,7 +49,7 @@ export const readChart = () => async (dispatch, getState) => {
 export const register = (payload, navigate) => async (dispatch) => {
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .post(`${endpoint}/user/register`, payload)
@@ -69,7 +69,7 @@ export const register = (payload, navigate) => async (dispatch) => {
 export const login = (payload, navigate) => async (dispatch) => {
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .post(`${endpoint}/user/login`, payload)
@@ -93,7 +93,7 @@ export const login = (payload, navigate) => async (dispatch) => {
 export const forgetPassword = (payload, navigate) => async (dispatch) => {
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .post(`${endpoint}/user/forget-password`, payload)
@@ -116,7 +116,7 @@ export const resendKey = (navigate) => async (dispatch, getState) => {
     const email = getState().user.profile.email;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     if (!email) {
         await dispatch(hideLoading());
@@ -145,7 +145,7 @@ export const verifyKey = (payload, navigate) => async (dispatch, getState) => {
     const email = getState().user.profile.email;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     if (!email) {
         await dispatch(hideLoading());
@@ -178,7 +178,7 @@ export const confirmPassword = (payload, navigate) => async (dispatch, getState)
     const {email, forgetKey} = getState().user.profile;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     if (!email) {
         await dispatch(hideLoading());
@@ -215,7 +215,7 @@ export const confirmPassword = (payload, navigate) => async (dispatch, getState)
 // logout
 export const logout = (navigate) => async (dispatch) => {
     await navigate('/');
-    await delay(500);
+    await delay(250);
     await dispatch({type: t.LOGOUT});
     await toast.error('شما از اکانت خود خارج شدید');
 };
@@ -223,7 +223,7 @@ export const logout = (navigate) => async (dispatch) => {
 // expire
 export const expire = (navigate) => async (dispatch) => {
     await navigate('/');
-    await delay(500);
+    await delay(250);
     await dispatch({type: t.EXPIRE});
 };
 
@@ -233,7 +233,7 @@ export const updateUser = (payload) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .put(`${endpoint}/user/edit-user`, payload, {
@@ -259,7 +259,7 @@ export const deleteAvatarUser = (navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .delete(`${endpoint}/user/delete-avatar-user`, {

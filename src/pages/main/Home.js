@@ -1,18 +1,18 @@
 import {useLayoutEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {readPublishedBooks} from '../../stores/action/bookAction';
-import {Helmet} from 'react-helmet';
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import MainLayout from '../../components/layout/MainLayout';
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import Seo from "../../components/modules/Seo";
+import MainLayout from '../../components/layouts/MainLayout';
 import BookList from '../../components/ui/BookList';
 import Searchbar from '../../components/ui/Searchbar';
-import Pagination from '../../core/Pagination';
-import EmptyPlaceholder from '../../core/EmptyPlaceholder';
+import Pagination from '../../components/modules/Pagination';
+import EmptyPlaceholder from '../../components/modules/EmptyPlaceholder';
 import BooksPlaceholder from '../../components/ui/placeholder/BooksPlaceholder';
 import PaginationPlaceholder from '../../components/ui/placeholder/PaginationPlaceholder';
 
@@ -35,10 +35,10 @@ const Home = () => {
     return (
         <>
 
-            <Helmet>
+            <Seo>
                 <title>فروشگاه کتاب</title>
                 <meta name="description" content="صفحه اصلی فروشگاه کتاب"/>
-            </Helmet>
+            </Seo>
 
             <PageAnimation>
 
@@ -53,7 +53,7 @@ const Home = () => {
                         {
                             publishedBooksIsLoading && (
                                 <>
-                                    <BooksPlaceholder count={12} xs={24} sm={12} md={8} lg={8} xl={6}/>
+                                    <BooksPlaceholder count={6} xs={24} sm={12} md={8} lg={8} xl={6}/>
                                     <PaginationPlaceholder/>
                                 </>
                             )

@@ -7,11 +7,11 @@ import {Helmet} from 'react-helmet';
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import AccountLayout from '../../components/layout/AccountLayout';
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import AccountLayout from '../../components/layouts/AccountLayout';
 import UsersTable from '../../components/ui/UsersTable';
-import Pagination from '../../core/Pagination';
-import EmptyPlaceholder from '../../core/EmptyPlaceholder';
+import Pagination from '../../components/modules/Pagination';
+import EmptyPlaceholder from '../../components/modules/EmptyPlaceholder';
 import TablePlaceholder from '../../components/ui/placeholder/TablePlaceholder';
 import PaginationPlaceholder from '../../components/ui/placeholder/PaginationPlaceholder';
 

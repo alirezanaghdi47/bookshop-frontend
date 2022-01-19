@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import ReactPaginate from 'react-paginate';
+import ReactPaginate from "react-paginate";
 
 
 const Pagination = ({pageCount, page, onPageChange}) => {

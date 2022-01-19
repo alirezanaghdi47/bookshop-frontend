@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import {LazyLoadImage} from 'react-lazy-load-image-component';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 //=================//
 //===== style =====//
 //=================//
 
 import 'react-lazy-load-image-component/src/effects/black-and-white.css';
-import '../styles/core/react-lazy-load-image.scss';
+import '../../styles/module/react-lazy-load-image.scss';
 
 
 const Image = ({src, alt, placeholderSrc, width, height, style, className}) => {

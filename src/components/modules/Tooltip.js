@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
-import Tippy from '@tippyjs/react';
+import Tippy from "@tippyjs/react";
 
 //=================//
 //===== style =====//
 //=================//
 
 import 'tippy.js/dist/tippy.css';
-import "./../styles/core/react-tooltip.scss";
+import "../../styles/module/react-tooltip.scss";
 
 
 const Tooltip = ({children, content, placement}) => {

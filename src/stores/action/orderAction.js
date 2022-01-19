@@ -14,7 +14,7 @@ export const createOrder = (book) => async (dispatch, getState) => {
     const order = cart?.orders?.find((item) => item.book._id === book._id);
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     if (order?.entity === 5) {
         await dispatch(hideLoading());
@@ -44,7 +44,7 @@ export const updateOrder = (order, book) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .put(
@@ -68,7 +68,7 @@ export const deleteOrder = (order, book) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .delete(`${endpoint}/order/delete-order/${order._id}`, {

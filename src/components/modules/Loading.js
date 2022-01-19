@@ -1,11 +1,12 @@
 import {useSelector} from 'react-redux';
-import Modal from 'react-modal';
+import Modal from "react-modal";
 
 //=================//
 //===== style =====//
 //=================//
 
-import '../styles/core/react-modal.scss';
+import '../../styles/module/react-modal.scss';
+import '../../styles/module/react-animation.scss';
 
 
 const Loading = () => {
@@ -13,7 +14,13 @@ const Loading = () => {
     const showingLoading = useSelector((state) => state.other.showingLoading);
 
     return (
-        <Modal isOpen={showingLoading} className="ReactModal__Loading">
+        <Modal
+            isOpen={showingLoading}
+            shouldFocusAfterRender={false}
+            ariaHideApp={false}
+            parentSelector={() => document.querySelector('#portal')}
+            className="ReactModal__Loading"
+        >
 
             <div
                 className="d-flex flex-column justify-content-center align-items-center bg-white rounded w-100 h-100"
@@ -35,6 +42,6 @@ const Loading = () => {
     );
 };
 
-Modal.setAppElement('#portal');
+// Modal.setAppElement('#portal');
 
 export default Loading;

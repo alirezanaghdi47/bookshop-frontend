@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 //===== component =====//
 //=====================//
 
-import Image from '../../core/Image';
+import Image from '../modules/Image';
 
 
 const Gallery = ({book}) => {

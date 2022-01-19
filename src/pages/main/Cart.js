@@ -1,20 +1,20 @@
 import {useLayoutEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {readOpenCart} from '../../stores/action/cartAction';
-import {Helmet} from 'react-helmet';
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import MainLayout from '../../components/layout/MainLayout';
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import Seo from "../../components/modules/Seo";
+import MainLayout from '../../components/layouts/MainLayout';
 import Recipient from '../../components/ui/Recipient';
 import ShoppingList from '../../components/ui/ShoppingList';
 import Price from '../../components/ui/Price';
-import EmptyPlaceholder from '../../core/EmptyPlaceholder';
+import EmptyPlaceholder from '../../components/modules/EmptyPlaceholder';
 import BooksPlaceholder from '../../components/ui/placeholder/BooksPlaceholder';
-import Placeholder from "../../core/Placeholder";
+import Placeholder from "../../components/modules/Placeholder";
 
 
 const Cart = () => {
@@ -34,10 +34,10 @@ const Cart = () => {
     return (
         <>
 
-            <Helmet>
+            <Seo>
                 <title>سبد خرید</title>
                 <meta name="description" content="صفحه سبد خرید"/>
-            </Helmet>
+            </Seo>
 
             <PageAnimation>
 

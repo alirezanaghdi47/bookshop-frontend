@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import Select from 'react-select';
+import Select from "react-select/base";
 
 //=================//
 //===== style =====//
 //=================//
 
-import '../../styles/core/react-select.scss';
+import '../../../styles/module/react-select.scss';
 
 
 const SelectBox = ({value, setFieldValue, name, label, placeholder, error, options}) => {

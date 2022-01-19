@@ -7,13 +7,13 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/core/react-slider.scss";
+import "../../styles/module/react-slider.scss";
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import BookItem from '../components/ui/BookItem';
+import BookItem from '../ui/BookItem';
 
 //====================//
 //===== variable =====//

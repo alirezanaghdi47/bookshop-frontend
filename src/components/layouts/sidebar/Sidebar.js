@@ -9,8 +9,8 @@ import {admin_acl , user_acl} from "../../../utils/variables";
 //===== component =====//
 //=====================//
 
-import CollapseAnimation from '../../../core/animation/CollapseAnimation';
-import Image from "../../../core/Image";
+import CollapseAnimation from '../../modules/animation/CollapseAnimation';
+import Image from "../../modules/Image";
 
 
 const adminRoutes = [

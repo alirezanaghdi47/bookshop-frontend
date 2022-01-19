@@ -1,6 +1,7 @@
 const cache_names = {
-    static: 'bookshop-static-v3.2',
-    dynamic: 'bookshop-dynamic-v3.2',
+    static: 'bookshop-static-v3.3.0',
+    dynamic: 'bookshop-dynamic-v3.3.0',
+    api: 'bookshop-api-v3.3.0',
 };
 
 const cache_urls = [
@@ -37,7 +38,7 @@ self.addEventListener('install', (e) => {
 // fetch
 self.addEventListener('fetch', (e) => {
 
-    // stale while revalidate first ( get static files )
+    // network first ( get static files )
     if (
         e.request.method === 'GET' &&
         (
@@ -46,16 +47,13 @@ self.addEventListener('fetch', (e) => {
         )
     ) {
         e.respondWith(
-            caches.match(e.request).then(cache => {
-                return (
-                    cache || fetch(e.request).then(networkResponse => {
-                        return caches.open(cache_names['dynamic']).then(cache => {
-                            cache.put(e.request, networkResponse.clone());
-                            return networkResponse;
-                        });
-                    })
-                );
-            })
+            fetch(e.request)
+                .then(networkResponse => {
+                    return caches.open(cache_names['dynamic']).then(cache => {
+                        cache.put(e.request, networkResponse.clone());
+                        return networkResponse;
+                    });
+                })
         );
     }
 
@@ -80,12 +78,12 @@ self.addEventListener('fetch', (e) => {
     // network first ( get apis )
     if (
         e.request.method === 'GET' &&
-        e.request.url.startsWith('https://alireza-bookshop.herokuapp.com/api')
+        e.request.url.startsWith('https://bookshop-backend-alirezanaghdi.fandogh.cloud/api')
     ) {
         e.respondWith(
             fetch(e.request)
                 .then(networkResponse => {
-                    return caches.open(cache_names['dynamic']).then(cache => {
+                    return caches.open(cache_names['api']).then(cache => {
                         cache.put(e.request, networkResponse.clone());
                         return networkResponse;
                     });

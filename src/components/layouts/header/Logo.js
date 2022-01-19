@@ -4,7 +4,7 @@ import {Link, useLocation} from 'react-router-dom';
 //===== component =====//
 //=====================//
 
-import Image from "../../../core/Image";
+import Image from "../../modules/Image";
 
 
 const Logo = () => {

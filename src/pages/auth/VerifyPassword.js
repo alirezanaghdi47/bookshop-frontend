@@ -3,15 +3,15 @@ import {useDispatch} from 'react-redux';
 import {confirmPassword} from '../../stores/action/userAction';
 import {useFormik} from 'formik';
 import {verifyPasswordSchema} from '../../utils/validations';
-import {Helmet} from 'react-helmet';
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import AuthLayout from '../../components/layout/AuthLayout';
-import PasswordInput from '../../core/form/PasswordInput';
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import Seo from "../../components/modules/Seo";
+import AuthLayout from '../../components/layouts/AuthLayout';
+import PasswordInput from '../../components/modules/form/PasswordInput';
 
 
 const VerifyPassword = () => {
@@ -32,10 +32,10 @@ const VerifyPassword = () => {
     return (
         <>
 
-            <Helmet>
+            <Seo>
                 <title>تغییر رمز</title>
                 <meta name="description" content="صفحه تغییر رمز عبور قدیم"/>
-            </Helmet>
+            </Seo>
 
             <PageAnimation>
 

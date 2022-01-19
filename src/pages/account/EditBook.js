@@ -12,13 +12,13 @@ import {Helmet} from 'react-helmet';
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import AccountLayout from '../../components/layout/AccountLayout';
-import FileInput from '../../core/form/FileInput';
-import SelectBox from '../../core/form/SelectBox';
-import NumberInput from '../../core/form/NumberInput';
-import TextInput from '../../core/form/TextInput';
-import Textarea from "../../core/form/Textarea";
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import AccountLayout from '../../components/layouts/AccountLayout';
+import FileInput from '../../components/modules/form/FileInput';
+import SelectBox from '../../components/modules/form/SelectBox';
+import NumberInput from '../../components/modules/form/NumberInput';
+import TextInput from '../../components/modules/form/TextInput';
+import Textarea from "../../components/modules/form/Textarea";
 
 //====================//
 //===== variable =====//

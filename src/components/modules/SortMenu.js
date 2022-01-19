@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import {Menu, MenuItem, MenuButton} from '@szhsin/react-menu';
 import {useMediaQuery} from 'react-responsive';
+import {Menu , MenuItem , MenuButton} from "@szhsin/react-menu";
 
 //=================//
 //===== style =====//
@@ -8,7 +8,7 @@ import {useMediaQuery} from 'react-responsive';
 
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/slide.css';
-import '../styles/core/react-menu.scss';
+import '../../styles/module/react-menu.scss';
 
 //====================//
 //===== variable =====//

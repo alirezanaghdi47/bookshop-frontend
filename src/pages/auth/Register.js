@@ -3,16 +3,16 @@ import {useDispatch} from 'react-redux';
 import {register} from '../../stores/action/userAction';
 import {useFormik} from 'formik';
 import {registerSchema} from '../../utils/validations';
-import {Helmet} from 'react-helmet';
 
 //=====================//
 //===== component =====//
 //=====================//
 
-import PageAnimation from "../../core/animation/PageAnimation";
-import AuthLayout from '../../components/layout/AuthLayout';
-import TextInput from '../../core/form/TextInput';
-import PasswordInput from '../../core/form/PasswordInput';
+import PageAnimation from "../../components/modules/animation/PageAnimation";
+import Seo from "../../components/modules/Seo";
+import AuthLayout from '../../components/layouts/AuthLayout';
+import TextInput from '../../components/modules/form/TextInput';
+import PasswordInput from '../../components/modules/form/PasswordInput';
 
 
 const Register = () => {
@@ -34,10 +34,10 @@ const Register = () => {
     return (
         <>
 
-            <Helmet>
+            <Seo>
                 <title>عضویت</title>
                 <meta name="description" content="صفحه عضویت کاربر جدید"/>
-            </Helmet>
+            </Seo>
 
             <PageAnimation>
 

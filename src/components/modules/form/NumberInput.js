@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Cleave from 'cleave.js/react';
+import Cleave from "cleave.js/react";
 
 
 const NumberInput = ({value, onChange, name, label, placeholder, error, options}) => {

@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import {useEffect, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
-import {formatBytes} from '../../utils/functions';
+import {formatBytes} from '../../../utils/functions';
 
 //=================//
 //===== style =====//
 //=================//
 
-import '../../styles/core/react-dropzone.scss';
+import '../../../styles/module/react-dropzone.scss';
 
 
 const FileInput = ({
@@ -57,7 +57,7 @@ const FileInput = ({
 
             <div
                 {...!preview ? getRootProps() : null}
-                className={`position-relative d-flex ${(file?.preview && value || preview) ? 'justify-content-start' : 'justify-content-center'} align-items-center form-control form-control-lg border-dashed p-2 cursor-pointer`}
+                className={`position-relative d-flex ${(file?.preview && value) || preview ? 'justify-content-start' : 'justify-content-center'} align-items-center form-control form-control-lg border-dashed p-2 cursor-pointer`}
                 style={{height: '10rem'}}
             >
                 {

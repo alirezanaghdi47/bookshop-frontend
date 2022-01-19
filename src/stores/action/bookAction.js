@@ -10,7 +10,7 @@ import {endpoint} from "../../utils/variables";
 export const readPublishedBooks = (query) => async (dispatch) => {
 
     await dispatch({type: t.GET_PUBLISHED_BOOKS});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/book/published-books?${query}`)
@@ -26,7 +26,7 @@ export const readPublishedBooks = (query) => async (dispatch) => {
 export const readPublishedBook = (id, navigate) => async (dispatch) => {
 
     await dispatch({type: t.GET_BOOK});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/book/published-books/${id}`)
@@ -43,7 +43,7 @@ export const readPublishedBook = (id, navigate) => async (dispatch) => {
 export const readRelativeBooks = (id) => async (dispatch) => {
 
     await dispatch({type: t.GET_RELATIVE_BOOKS});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/book/relative-books/${id}`)
@@ -61,7 +61,7 @@ export const readBooks = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_BOOKS});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/book/books?${query}`, {
@@ -79,7 +79,7 @@ export const readBooks = (query) => async (dispatch, getState) => {
 export const readBook = (id) => async (dispatch) => {
 
     await dispatch({type: t.GET_BOOK});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/book/books/${id}`)
@@ -97,7 +97,7 @@ export const createBook = (payload, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .post(`${endpoint}/book/add-book`, payload, {
@@ -120,7 +120,7 @@ export const updateBook = (id, payload, navigate) => async (dispatch, getState) 
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .put(`${endpoint}/book/edit-book/${id}`, payload, {
@@ -143,7 +143,7 @@ export const deleteBook = (id, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .delete(`${endpoint}/book/delete-book/${id}`, {

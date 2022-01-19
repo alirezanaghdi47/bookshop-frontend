@@ -12,7 +12,7 @@ export const readCategories = (query) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CATEGORIES});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/category/categories?${query}`, {
@@ -32,7 +32,7 @@ export const readCategory = (id) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch({type: t.GET_CATEGORY});
-    await delay(500);
+    await delay(250);
 
     await axios
         .get(`${endpoint}/category/categories/${id}`, {
@@ -52,7 +52,7 @@ export const createCategory = (payload, navigate) => async (dispatch, getState) 
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .post(`${endpoint}/category/add-category`, payload, {
@@ -75,7 +75,7 @@ export const updateCategory = (id, payload, navigate) => async (dispatch, getSta
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .put(`${endpoint}/category/edit-category/${id}`, payload, {
@@ -98,7 +98,7 @@ export const deleteCategory = (id, navigate) => async (dispatch, getState) => {
     const token = getState().user.profile.token;
 
     await dispatch(showLoading());
-    await delay(500);
+    await delay(250);
 
     await axios
         .patch(
