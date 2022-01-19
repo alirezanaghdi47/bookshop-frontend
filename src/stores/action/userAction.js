@@ -215,7 +215,7 @@ export const confirmPassword = (payload, navigate) => async (dispatch, getState)
 // logout
 export const logout = (navigate) => async (dispatch) => {
     await navigate('/');
-    await delay(250);
+    await delay(500);
     await dispatch({type: t.LOGOUT});
     await toast.error('شما از اکانت خود خارج شدید');
 };
@@ -223,7 +223,7 @@ export const logout = (navigate) => async (dispatch) => {
 // expire
 export const expire = (navigate) => async (dispatch) => {
     await navigate('/');
-    await delay(250);
+    await delay(500);
     await dispatch({type: t.EXPIRE});
 };
 
