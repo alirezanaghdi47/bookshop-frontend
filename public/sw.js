@@ -1,7 +1,7 @@
 const cache_names = {
-    static: 'bookshop-static-v3.3.0',
-    dynamic: 'bookshop-dynamic-v3.3.0',
-    api: 'bookshop-api-v3.3.0',
+    static: 'bookshop-static-v3.3.1',
+    dynamic: 'bookshop-dynamic-v3.3.1',
+    api: 'bookshop-api-v3.3.1',
 };
 
 const cache_urls = [

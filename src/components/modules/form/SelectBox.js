@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Select from "react-select/base";
+import Select from "react-select";
 
 //=================//
 //===== style =====//
