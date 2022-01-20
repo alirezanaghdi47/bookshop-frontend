@@ -37,7 +37,7 @@ const BookItem = ({book}) => {
 
                 <Link
                     to={`/books/${book?._id}`}
-                    className="fs-4 fw-bold text-dark text-center text-truncate text-decoration-none mb-2"
+                    className="fs-4 fw-bold text-dark text-center text-decoration-none mb-2"
                 >
                     {book?.name}
                 </Link>

@@ -32,15 +32,15 @@ const OrderItem = ({order}) => {
 
             </div>
 
-            <div className="card-body vstack gap-2">
+            <div className="card-body vstack gap-3">
 
                 <Link
                     to={`/books/${order?.book?._id}`}
-                    className="fs-4 fw-bold text-dark text-center text-truncate text-decoration-none">
+                    className="fs-4 fw-bold text-dark text-center text-decoration-none">
                     {order?.book?.name}
                 </Link>
 
-                <div className="d-flex justify-content-center align-items-center">
+                <div className="d-flex justify-content-center align-items-center mb-2">
                       <span className="badge bg-secondary fs-5 fw-bold text-dark rounded px-2 py-1 ms-3">
                         x {order?.entity}
                       </span>

@@ -81,7 +81,7 @@ const ShoppingItem = ({order}) => {
 
                 <Link
                     to={`/books/${order?.book?._id}`}
-                    className="fs-4 fw-bold text-dark text-center text-truncate text-decoration-none mb-2">
+                    className="fs-4 fw-bold text-dark text-center text-decoration-none mb-2">
                     {order?.book?.name}
                 </Link>
 
