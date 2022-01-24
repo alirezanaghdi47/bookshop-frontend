@@ -34,7 +34,7 @@ const ShoppingItem = ({order}) => {
     return (
         <article className="card h-100">
 
-            <div className="card-header">
+            <div className="card-header p-3">
 
                 <div
                     className="position-absolute z-index-400 d-flex flex-column justify-content-center align-items-center"
@@ -63,7 +63,7 @@ const ShoppingItem = ({order}) => {
 
                 <Link
                     to={`/books/${order?.book?._id}`}
-                    className="d-flex justify-content-center align-items-center p-3">
+                    className="d-flex justify-content-center align-items-center">
                     <Image
                         src={order?.book?.imageUrl}
                         alt={order?.book?.name}
@@ -77,11 +77,11 @@ const ShoppingItem = ({order}) => {
 
             </div>
 
-            <div className="card-body vstack gap-2">
+            <div className="card-body vstack gap-2 px-3">
 
                 <Link
                     to={`/books/${order?.book?._id}`}
-                    className="fs-4 fw-bold text-dark text-center text-decoration-none mb-2">
+                    className="fs-4 fw-bold text-dark text-center text-decoration-none">
                     {order?.book?.name}
                 </Link>
 
