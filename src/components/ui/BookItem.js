@@ -14,11 +14,11 @@ const BookItem = ({book}) => {
     return (
         <article className="card h-100">
 
-            <div className="card-header p-3">
+            <div className="card-header">
 
                 <Link
                     to={`/books/${book?._id}`}
-                    className="d-flex justify-content-center align-items-center"
+                    className="d-flex justify-content-center align-items-center p-3"
                 >
                     <Image
                         src={book?.imageUrl}
@@ -33,11 +33,11 @@ const BookItem = ({book}) => {
 
             </div>
 
-            <div className="card-body vstack gap-2 px-3">
+            <div className="card-body vstack gap-2">
 
                 <Link
                     to={`/books/${book?._id}`}
-                    className="fs-4 fw-bold text-dark text-center text-decoration-none"
+                    className="fs-4 fw-bold text-dark text-center text-decoration-none mb-2"
                 >
                     {book?.name}
                 </Link>

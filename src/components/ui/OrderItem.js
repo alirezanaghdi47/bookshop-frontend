@@ -14,12 +14,11 @@ const OrderItem = ({order}) => {
     return (
         <article className="card h-100">
 
-            <div className="card-header p-3">
+            <div className="card-header">
 
                 <Link
                     to={`/books/${order?.book?._id}`}
-                    className="d-flex justify-content-center align-items-center"
-                >
+                    className="d-flex justify-content-center align-items-center p-3">
                     <Image
                         src={order?.book?.imageUrl}
                         alt={order?.book?.name}
@@ -33,7 +32,7 @@ const OrderItem = ({order}) => {
 
             </div>
 
-            <div className="card-body vstack gap-3 p-3">
+            <div className="card-body vstack gap-3">
 
                 <Link
                     to={`/books/${order?.book?._id}`}
@@ -41,7 +40,7 @@ const OrderItem = ({order}) => {
                     {order?.book?.name}
                 </Link>
 
-                <div className="d-flex justify-content-center align-items-center">
+                <div className="d-flex justify-content-center align-items-center mb-2">
                       <span className="badge bg-secondary fs-5 fw-bold text-dark rounded px-2 py-1 ms-3">
                         x {order?.entity}
                       </span>

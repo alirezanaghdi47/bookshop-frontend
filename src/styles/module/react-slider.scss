@@ -59,12 +59,14 @@
   z-index: 100 !important;
   width: 3rem !important;
   height: 3rem !important;
-  background: #4d1dfe !important;
+  background: #ffffff !important;
   border-radius: 1rem !important;
+  box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.1) 0 8px 24px,
+  rgba(17, 17, 26, 0.1) 0 16px 56px !important;
 
   &::before {
     font-family: "Font Awesome 5 Pro" !important;
-    color: #ffffff !important;
+    color: #4d1dfe !important;
     opacity: 1 !important;
   }
 }
@@ -92,6 +94,6 @@
 .swiper__item {
   display: grid !important;
   direction: rtl !important;
-  min-height: 250px !important;
+  min-height: 360px !important;
   height: 100% !important;
 }
